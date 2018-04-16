@@ -1,0 +1,30 @@
+.col-sm-3{
+	padding: 0;
+}
+
+.Navigator {
+	position: fixed;
+	background-color: #efefef;
+	height: 100vh;
+	padding: 20px;
+}
+
+.Navigator-profile{
+	padding: 25px;
+}
+.Navigator-profile > img{
+	height: 200px;
+	border-radius: 50%;
+	width: 200px;
+}
+
+.Navigator-profile > span{
+	display: inline-flex;
+	flex-flow: wrap;
+}
+
+.Navigator-profile > nav{
+	padding-top: 25px;
+	display: grid;
+	font-size: 25px;
+}
