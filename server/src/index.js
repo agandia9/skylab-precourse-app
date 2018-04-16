@@ -1,14 +1,11 @@
 require('dotenv').config()
 const express = require('express')
+const router = require('./routes')
+
 const app = express()
 
-app.get('/api/get', (req,res) => {
-    res.json('hello get')
-})
-
-app.post('/api/post', (req,res) => {
-    res.json('hello post')
-})
+app.use('/api', router)
 
 const port = process.env.PORT
+
 app.listen(port, () => console.log(`conexion in port ${port}`))
