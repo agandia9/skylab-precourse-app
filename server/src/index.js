@@ -3,7 +3,11 @@ const express = require('express')
 const app = express()
 
 app.get('/api/get', (req,res) => {
-    res.json('hello world')
+    res.json('hello get')
+})
+
+app.post('/api/post', (req,res) => {
+    res.json('hello post')
 })
 
 const port = process.env.PORT
