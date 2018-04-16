@@ -19,10 +19,10 @@ class App extends Component {
         </header>
         <BrowserRouter>
           <div className="row">
-            <div className="col-sm-3">
+            <div className="col-sm-2">
                 <Navigator />
             </div>
-            <div className="col-sm-9">
+            <div className="col-sm-10">
                <Route
                  path={'/week/:nweek'}
                  component={Main}

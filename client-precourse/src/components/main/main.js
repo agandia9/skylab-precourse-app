@@ -1,13 +1,33 @@
 import React,  { Component } from 'react';
+import Exercise from './exercise/exercise.js'
 import './main.css';
 
 class Main extends Component {
+	constructor(){
+		super()
+		this.state={
+			nweek: '',
+			exercises: [1,2,3,4,5,6]
+		}
+	}
+
+	componentWillReceiveProps(){
+		let {nweek} = this.props.match.params
+		console.log(nweek)
+		this.setState({
+			nweek
+		})
+	}
   render() {
     return (
-      <div>
-        <p className="Main">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem minima mollitia rerum sint delectus ducimus quia odit reprehenderit. Architecto, illum, ipsum. Veniam unde odio maiores asperiores nihil, delectus itaque vitae?
-        </p>
+      <div className="Main">
+        {
+        	this.state.exercises.map((exercise)=>{
+        		return(
+        		<Exercise exercise={exercise}/>
+        		)
+        	})
+        }
       </div>
     );
   }
