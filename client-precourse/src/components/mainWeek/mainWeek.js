@@ -2,7 +2,7 @@ import React,  { Component } from 'react';
 import Exercise from './exercise/exercise.js'
 import './main.css';
 
-class Main extends Component {
+class MainWeek extends Component {
 	constructor(){
 		super()
 		this.state={
@@ -11,9 +11,17 @@ class Main extends Component {
 		}
 	}
 
-	componentWillReceiveProps(){
+	componentWillMount(){
 		let {nweek} = this.props.match.params
-		console.log(nweek)
+		console.log(this.props.match)
+		return this.setState({
+			nweek
+		})
+	}
+
+	componentWillReceiveProps(nextProps){
+		let {nweek} = nextProps.match.params
+		console.log(this.props.match)
 		this.setState({
 			nweek
 		})
@@ -21,6 +29,7 @@ class Main extends Component {
   render() {
     return (
       <div className="Main">
+      	<h2>{this.state.nweek}</h2>
         {
         	this.state.exercises.map((exercise)=>{
         		return(
@@ -33,4 +42,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default MainWeek;
