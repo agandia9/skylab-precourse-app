@@ -3,8 +3,9 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Navigator from './navigator/navigator.js'
 import { BrowserRouter, Route, NavLink } from 'react-router-dom'
-import Main from './main/main.js'
+import MainWeek from './mainWeek/mainWeek.js'
 import Profile from './profile/profile.js'
+import Welcome from './welcome/welcome.js'
 
 class App extends Component {
   render() {
@@ -27,11 +28,15 @@ class App extends Component {
               <div className="col-sm-10">
                  <Route
                    path={'/week/:nweek'}
-                   component={Main}
+                   component={MainWeek}
                   />
                   <Route
                    path={'/profile/:username'}
                    component={Profile}
+                  />
+                  <Route
+                   path={'/welcome'}
+                   component={Welcome}
                   />
               </div>
           </div>
