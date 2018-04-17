@@ -11,31 +11,30 @@ class App extends Component {
     return (
       <div className="App">
       <BrowserRouter>
-      <div>
-        <header className="App-header row">
-          <h1 className="App-title col-sm-10">Welcome to dis thing.</h1>
-          <ul className="col-sm-2 nav-top">
-             <NavLink to="/home">Home</NavLink>
-             <NavLink to="/logout">Logout</NavLink>
-            <NavLink to="/profile/username">Profile</NavLink>
-          </ul>
-        </header>
-        
-          <div className="row">
-            <div className="col-sm-2">
-                <Navigator />
-            </div>
-            <div className="col-sm-10">
-               <Route
-                 path={'/week/:nweek'}
-                 component={Main}
-                />
-                <Route
-                 path={'/profile/:username'}
-                 component={Profile}
-                />
-            </div>
-        </div>
+        <div>
+          <header className="App-header row">
+            <h1 className="App-title col-sm-10">Welcome to dis thing.</h1>
+            <ul className="col-sm-2 nav-top">
+               <NavLink to="/welcome">Home</NavLink>
+               <NavLink to="/logout">Logout</NavLink>
+              <NavLink to="/profile/username">Profile</NavLink>
+            </ul>
+          </header>
+            <div className="row">
+              <div className="col-sm-2">
+                  <Navigator />
+              </div>
+              <div className="col-sm-10">
+                 <Route
+                   path={'/week/:nweek'}
+                   component={Main}
+                  />
+                  <Route
+                   path={'/profile/:username'}
+                   component={Profile}
+                  />
+              </div>
+          </div>
         </div>
         </BrowserRouter>
       </div>
