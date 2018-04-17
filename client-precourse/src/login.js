@@ -6,7 +6,6 @@ class Login extends Component {
   render() {
     return (
 			<BrowserRouter>
-			
 	    		<div>
 		    		<NavLink to="/welcome">enter</NavLink>
 		    		<Route
