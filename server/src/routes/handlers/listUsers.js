@@ -1,7 +1,7 @@
 const logic = require('../../logic')
 
 module.exports = (req,res) => {
-    logic.post()
-        .then(posts => res.json(posts))
+    logic.listUsers()
+        .then(users => res.json(users))
         .catch(err => res.json(err))
 }

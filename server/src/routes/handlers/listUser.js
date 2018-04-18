@@ -1,7 +1,10 @@
 const logic = require('../../logic')
 
 module.exports = (req,res) => {
-    logic.get()
-        .then(gets => res.json(gets))
+
+    const {params : { id }} = req
+
+    logic.listUser(id)
+        .then(user => res.json(user))
         .catch(err => res.json(err))
 }

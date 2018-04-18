@@ -1,31 +1,26 @@
+const { User } = require('../models')
+const mongoose = require('mongoose')
+
 module.exports = {
 
-    get() {
-        return Promise.resolve()
-            .then( () => {
-                return 'Hello GET'
-            })
+    listUsers(){
+        return User.find({})
     },
 
-    post() {
-        return Promise.resolve()
-            .then( () => {
-                return 'Hello POST'
-            })
+    listUser(id){
+        return User.findOne({_id:id})
     },
 
-    put() {
-        return Promise.resolve()
-            .then( () => {
-                return 'Hello PUT'
-            })
+    createUser(name,surname,username,password,stateallprecourse,photo,slackUser,units){
+        return User.create({name,surname,username,password,stateallprecourse,photo,units})
     },
 
-    delete(){
-        return Promise.resolve()
-            .then( () => {
-                return 'Hello DELETE'
-            })
+    updateUser(id,name,surname,username,password,stateallprecourse,photo,slackUser,units){
+        return User.findByIdAndUpdate({_id:id}, {$set:{name,surname,password,stateallprecourse,photo,slackUser,units}})
+    },
+
+    deleteUser(id){
+        return User.findByIdAndRemove({_id:id})
     }
 
 }

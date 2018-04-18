@@ -1,14 +1,18 @@
 const express = require('express')
-const {gets,posts,puts,deletes} = require('./handlers')
+const {listUsers, listUser, createUser, updateUser, deleteUser} = require('./handlers')
+const bodyParser = require('body-parser')
+const jsonBodyParser = bodyParser.json()
 
 const router = express.Router()
 
-router.get('/get', gets)
+router.get('/listUsers', listUsers)
 
-router.post('/post', posts)
+router.get('/listUser/:id', listUser)
 
-router.put('/put', puts)
+router.post('/createUser', jsonBodyParser, createUser)
 
-router.delete('/delete', deletes)
+router.put('/updateUser/:id', jsonBodyParser, updateUser)
+
+router.delete('/deleteUser/:id', deleteUser)
 
 module.exports = router
