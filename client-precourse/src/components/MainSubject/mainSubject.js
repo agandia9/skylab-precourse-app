@@ -1,35 +1,35 @@
 import React,  { Component } from 'react';
 import Exercise from './exercise/exercise.js'
-import './main.css';
+import './mainSubject.css';
 
-class MainWeek extends Component {
+class MainSubject extends Component {
 	constructor(){
 		super()
 		this.state={
-			nweek: '',
+			nsubject: '',
 			exercises: [1,2,3,4,5,6]
 		}
 	}
 
 	componentWillMount(){
-		let {nweek} = this.props.match.params
+		let {nsubject} = this.props.match.params
 		console.log(this.props.match)
 		return this.setState({
-			nweek
+			nsubject
 		})
 	}
 
 	componentWillReceiveProps(nextProps){
-		let {nweek} = nextProps.match.params
+		let {nsubject} = nextProps.match.params
 		console.log(this.props.match)
 		this.setState({
-			nweek
+			nsubject
 		})
 	}
   render() {
     return (
       <div className="Main">
-      	<h2>{this.state.nweek}</h2>
+      	<h2>Subject {this.state.nsubject}</h2>
         {
         	this.state.exercises.map((exercise)=>{
         		return(
@@ -42,4 +42,4 @@ class MainWeek extends Component {
   }
 }
 
-export default MainWeek;
+export default MainSubject;

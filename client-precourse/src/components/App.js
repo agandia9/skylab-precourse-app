@@ -3,15 +3,15 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Navigator from './navigator/navigator.js'
 import { BrowserRouter, Route, NavLink } from 'react-router-dom'
-import MainWeek from './mainWeek/mainWeek.js'
+import MainSubject from './MainSubject/mainSubject.js'
 import Profile from './profile/profile.js'
 import Welcome from './welcome/welcome.js'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
       <BrowserRouter>
+      <div className="App">
         <div>
           <header className="App-header row">
             <h1 className="App-title col-sm-10">Welcome to dis thing.</h1>
@@ -27,8 +27,8 @@ class App extends Component {
               </div>
               <div className="col-sm-10">
                  <Route
-                   path={'/week/:nweek'}
-                   component={MainWeek}
+                   path={'/subject/:nsubject'}
+                   component={MainSubject}
                   />
                   <Route
                    path={'/profile/:username'}
@@ -41,8 +41,8 @@ class App extends Component {
               </div>
           </div>
         </div>
-        </BrowserRouter>
       </div>
+      </BrowserRouter>
     );
   }
 }
