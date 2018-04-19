@@ -19,6 +19,10 @@ const api = {
         return rp(options)
     },
 
+    login(username,password){
+        return this._call('post', 'login', {username,password})
+    },
+
     listUsers(){
         return this._call('get', 'listUsers')
     },

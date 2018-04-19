@@ -15,11 +15,25 @@ describe('api', () => {
         api.listUsers()
             .then(res => {
                 assert.equal(res.status, 'OK', `results should be ok but got errors ${res.error}`)
-
+                
                 assert(res.data && res.data.length > 0, 'should results data array')
 
                 done()
 
+            })
+            .catch(done)
+    })
+
+    it('should listUser', done => {
+        api.listUser('5ad758c9db42300668a6648b')
+            .then(res => {
+                assert.equal(res.status, 'OK', `results should be ok but got errors ${res.error}`)
+
+                assert.equal(res.data._id, '5ad758c9db42300668a6648b')
+                
+                assert(res.data, 'should results data array')
+
+                done()
             })
             .catch(done)
     })

@@ -1,9 +1,11 @@
 const express = require('express')
-const {listUsers, listUser, createUser, updateUser, deleteUser} = require('./handlers')
+const {login, listUsers, listUser, createUser, updateUser, deleteUser} = require('./handlers')
 const bodyParser = require('body-parser')
 const jsonBodyParser = bodyParser.json()
 
 const router = express.Router()
+
+router.post('/login', jsonBodyParser, login)
 
 router.get('/listUsers', listUsers)
 

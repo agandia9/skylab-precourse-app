@@ -1,3 +1,4 @@
+const { succcess, fail } = require('./api-utils')
 const logic = require('../../logic')
 
 module.exports = (req,res) => {
@@ -6,9 +7,9 @@ module.exports = (req,res) => {
 
     logic.createUser(name,surname,username,password,stateallprecourse,photo,slackUser,units)
         .then(id => {
-            res.json(id)
+            res.json(success(id))
         })
         .catch(err => {
-            res.json(err)
+            res.json(fail(err))
         })
 }
