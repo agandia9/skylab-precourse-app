@@ -1,14 +1,30 @@
 require('dotenv').config()
 const express = require('express')
-const app = express()
+const mongoose = require('mongoose')
+const cors = require('cors')
+const router = require('./routes')
 
-app.get('/api/get', (req,res) => {
-    res.json('hello get')
-})
+const mongo = {
+    host: process.env.MONGO_HOST,
+    port: process.env.MONGO_PORT,
+    database: process.env.MONGO_DATABASE 
+}
 
-app.post('/api/post', (req,res) => {
-    res.json('hello post')
-})
+with (mongo) {
+    mongoose.connect(`mongodb://${host}:${port}/${database}`)
+        .then(() => {
+            const app = express()
 
-const port = process.env.PORT
-app.listen(port, () => console.log(`conexion in port ${port}`))
+            app.use(cors())
+
+            app.use('/api', router)
+
+            const port = process.env.PORT
+
+            app.listen(port, () => console.log(`conexion in port ${port}`))
+        })
+        .catch(err => {
+            console.error('App started error:', err.stack);
+            process.exit(1);
+        }) 
+}
