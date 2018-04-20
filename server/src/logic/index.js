@@ -3,6 +3,18 @@ const mongoose = require('mongoose')
 
 module.exports = {
 
+    login(username,password){
+         return Promise.resolve()
+            .then( () => {
+                return User.findOne({ username,password},{_id: 1, username: 1})
+            }) 
+            .then(user => {
+                if(!user) throw Error('username and/or password wrong')
+
+                return user
+            })
+    },
+
     listUsers(){
         return User.find({})
     },

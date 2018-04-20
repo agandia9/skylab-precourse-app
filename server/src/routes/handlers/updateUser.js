@@ -1,3 +1,4 @@
+const { success, fail } = require('./api-utils')
 const logic = require('../../logic')
 
 module.exports = (req,res) => {
@@ -8,9 +9,9 @@ module.exports = (req,res) => {
 
     logic.updateUser(id,name,surname,username,password,stateallprecourse,photo,slackUser,units)
         .then(id => {
-            res.json(user)
+            res.json(success(user))
         })
         .catch(err => {
-            res.json(err)
+            res.json(fail(err))
         })
 }
