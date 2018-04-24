@@ -1,4 +1,4 @@
-const { success, fail } = require('./api-utils')
+const { success, fail } = require('./utils/api-utils')
 const jwt = require('jsonwebtoken')
 
 const secret = process.env.JWT_SECRET

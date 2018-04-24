@@ -1,5 +1,5 @@
-const { succcess, fail } = require('./api-utils')
-const logic = require('../../logic')
+const { succcess, fail } = require('../utils/api-utils')
+const logic = require('../../../logic')
 
 module.exports = (req,res) => {
 
