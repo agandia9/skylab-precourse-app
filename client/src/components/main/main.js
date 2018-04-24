@@ -1,8 +1,13 @@
 import React,  { Component } from 'react';
-import Exercise from './exercise/exercise.js'
+import {Exercise} from '../exercise/exercise'
+import { Route, NavLink } from 'react-router-dom'
+import {Navigator} from '../navigator/navigator'
+import {Profile} from '../profile/profile'
+import {Welcome} from '../welcome/welcome'
+import {Subject} from '../subject/subject'
 import './main.css';
 
-class Main extends Component {
+export class Main extends Component {
 	constructor(){
 		super()
 		this.state={
@@ -11,26 +16,40 @@ class Main extends Component {
 		}
 	}
 
-	componentWillReceiveProps(){
-		let {nweek} = this.props.match.params
-		console.log(nweek)
-		this.setState({
-			nweek
-		})
-	}
+
   render() {
     return (
-      <div className="Main">
-        {
-        	this.state.exercises.map((exercise)=>{
-        		return(
-        		<Exercise exercise={exercise}/>
-        		)
-        	})
-        }
-      </div>
+			<div className="App">
+        <header className="App-header row">
+				{/* component title */}
+          <h1 className="App-title col-sm-10">Welcome to dis thing.</h1>
+          <ul className="col-sm-2 nav-top">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/profile/username">Profile</NavLink>
+          </ul>
+        </header>
+          <div className="row">
+            <div className="col-sm-2">
+                <Navigator />
+            </div>
+            <div className="col-sm-10">
+								<Route 
+								exact path={'/'}
+								component={Welcome}
+								/>
+								<Route 
+								 path={'/subject/:nsubject'}
+								component={Subject}
+								/>
+                <Route
+                path={'/profile/:username'}
+                component={Profile}
+                />
+            </div>
+					</div>
+        </div>
+				
+
     );
   }
 }
-
-export default Main;

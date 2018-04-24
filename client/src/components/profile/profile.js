@@ -1,7 +1,7 @@
 import React,  { Component } from 'react';
 
 
-class Profile extends Component {
+export class Profile extends Component {
 	constructor(){
 		super()
 		this.state={
@@ -29,4 +29,3 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
