@@ -1,5 +1,5 @@
-const { success, fail} = require('./api-utils')
-const logic = require('../../logic')
+const { success, fail} = require('../utils/api-utils')
+const logic = require('../../../logic')
 const jwt = require('jsonwebtoken')
 
 const { JWT_SECRET : secret} = process.env

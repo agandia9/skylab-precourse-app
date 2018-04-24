@@ -1,7 +1,8 @@
 const express = require('express')
-const {login, listUsers, listUser, createUser, updateUser, deleteUser} = require('./handlers')
+const {login, listUsers, listUser, createUser, updateUser, deleteUser} = require('./handlers/userHandlers')
 const bodyParser = require('body-parser')
 const jsonBodyParser = bodyParser.json()
+const jwtValidator = require('./handlers/jwtValidator')
 
 const router = express.Router()
 
@@ -9,7 +10,7 @@ router.post('/login', jsonBodyParser, login)
 
 router.get('/listUsers', listUsers)
 
-router.get('/listUser/:id', listUser)
+router.get('/listUser/:id', jwtValidator, listUser)
 
 router.post('/createUser', jsonBodyParser, createUser)
 

@@ -8,13 +8,17 @@ const api = {
         return `${this.protocol}://${this.host}:${this.port}/api`
     },
 
-    _call(method,path,body){
+    _call(method,path,body,token){
 
         const options = {
             method,
             url: `${this._baseUrl()}/${path}`,
             json: true
         }
+
+        if(body) options.body = body
+
+        if(token) options.headers = { authorization: `Bearer ${token}` }
 
         return rp(options)
     },
@@ -28,7 +32,7 @@ const api = {
     },
 
     listUser(id){
-        return this._call('get', `listUser/${id}`)
+        return this._call('get', `listUser/${id}`, undefined, token)
     },
 
     createUser(name,surname,username,password,stateallprecourse,photo,slackUser,units){
