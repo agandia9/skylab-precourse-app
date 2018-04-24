@@ -10,7 +10,7 @@ router.post('/login', jsonBodyParser, login)
 
 router.get('/listUsers', listUsers)
 
-router.get('/listUser/:id', jwtValidator, listUser)
+router.get('/listUser', jwtValidator, listUser)
 
 router.post('/createUser', jsonBodyParser, createUser)
 
