@@ -8,15 +8,17 @@ import {Main} from './main/main'
 import {Login} from './login/login'
 
 class App extends Component {
-  
   state = {isLogged: false}
 
+  componentDidMount (){
+    storage.getToken() ? this.setState({isLogged:true}) : undefined
+  }
+  
   _handleIsLogged =(token)=>{
     this.setState({isLogged:true})
     storage.setToken(token)
   }
   render() {
-
     const Logged = this.state.isLogged
     ? <Main />
     : <Login _handleIsLogged={this._handleIsLogged}/>
