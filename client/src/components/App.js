@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import storage from './services/storage'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import {Main} from './main/main'
@@ -9,10 +9,11 @@ import {Login} from './login/login'
 
 class App extends Component {
   
-  state = {isLogged: false, token: ''}
+  state = {isLogged: false}
 
   _handleIsLogged =(token)=>{
-    this.setState({isLogged:true, token})
+    this.setState({isLogged:true})
+    storage.setToken(token)
   }
   render() {
 

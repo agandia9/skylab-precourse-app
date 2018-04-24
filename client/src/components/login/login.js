@@ -21,7 +21,16 @@ export class Login extends Component {
     _handleLogin = (e)=> {
         e.preventDefault()
         const {username, password} = this.state
-        service.login(username, password).then(res=>this.props._handleIsLogged(res.data.token))
+        service.login(username, password).then(res=>{
+            if(res.status === 'OK'){
+                console.log('logged!!')
+                
+                this.props._handleIsLogged(res.data.token)
+            }else{
+                console.error('not logged')
+            }
+
+        })
             
             //res.json()).then(token => console.log(token))
     }
