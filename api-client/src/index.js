@@ -31,8 +31,8 @@ const api = {
         return this._call('get', 'listUsers')
     },
 
-    listUser(id){
-        return this._call('get', `listUser/${id}`, undefined, token)
+    listUser(token){
+        return this._call('get', `listUser`, undefined, token)
     },
 
     createUser(name,surname,username,password,stateallprecourse,photo,slackUser,units){

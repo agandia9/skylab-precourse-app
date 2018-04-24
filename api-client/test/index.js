@@ -25,7 +25,7 @@ describe('api', () => {
     })
 
     it('should listUser', done => {
-        api.listUser('5ad758c9db42300668a6648b')
+        api.listUser('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZDc1OGM5ZGI0MjMwMDY2OGE2NjQ4YiIsImlhdCI6MTUyNDU3MTMyNH0.A0DvZimdtL62MQkGb0Se-8Tvv6FSt7KZUNSmt_DHBZ4')
             .then(res => {
                 assert.equal(res.status, 'OK', `results should be ok but got errors ${res.error}`)
 
