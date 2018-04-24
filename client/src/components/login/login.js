@@ -28,6 +28,7 @@ export class Login extends Component {
                 this.props._handleIsLogged(res.data.token)
             }else{
                 console.error('not logged')
+                //swal
             }
 
         })
