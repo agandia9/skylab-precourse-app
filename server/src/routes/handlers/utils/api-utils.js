@@ -1,4 +1,4 @@
-function success (data){
+function success(data){
     const res = {status: 'OK'}
 
     if(data) res.data = data

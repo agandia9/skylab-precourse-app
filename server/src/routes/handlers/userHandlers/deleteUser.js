@@ -7,9 +7,9 @@ module.exports = (req,res) => {
 
     logic.deleteUser(id)
         .then(id => {
-            res.json(success(user))
+            res.json(success({id}))
         })
         .catch(err => {
-            res.json(fail(err))
+            res.json(fail(err.message))
         })
 }
