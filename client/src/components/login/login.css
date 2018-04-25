@@ -1,0 +1,34 @@
+
+span{
+    grid-area: logo;
+}
+form{
+    grid-area: form;
+}
+.description{
+    font-size: 25px;
+    grid-area: descript;
+}
+form input{
+    height: 50px !important;
+    font-size: 25px!important;
+}
+.control{
+    text-align: center !important;
+}
+.button.is-success{
+    width: 200px !important;
+    height: 50px;
+    font-size: 20px;
+}
+.form-login {
+    height: 100vh;
+    display: grid !important;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 15vh 25vh 15vh 25vh;
+    grid-template-areas: 
+    ". . ."
+    ". logo ."
+    ". descript ."
+    ". form .";
+}

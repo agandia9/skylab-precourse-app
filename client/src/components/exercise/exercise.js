@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import './exercise.css';
 
-class Exercise extends Component {
-	constructor(){
-		super()
-	}
-
+export class Exercise extends Component {
   componentWillMount(){
     console.log(this.props)
   }
@@ -17,5 +13,3 @@ class Exercise extends Component {
     );
   }
 }
-
-export default Exercise;

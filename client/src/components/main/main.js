@@ -1,36 +1,50 @@
 import React,  { Component } from 'react';
-import Exercise from './exercise/exercise.js'
+import api from '../services/api'
+import storage from '../services/storage'
+import {Exercise} from '../exercise/exercise'
+import { Route, NavLink } from 'react-router-dom'
+import {Navigator} from '../navigator/navigator'
+import {Profile} from '../profile/profile'
+import {Welcome} from '../welcome/welcome'
+import {Subject} from '../subject/subject'
+import {Header} from '../header/header'
 import './main.css';
 
-class Main extends Component {
+export class Main extends Component {
 	constructor(){
 		super()
 		this.state={
-			nweek: '',
-			exercises: [1,2,3,4,5,6]
+			
 		}
 	}
+  componentDidMount(){
+    api.listUser(storage.getToken()).then(res => this.props._handlerUserInfo(res.data) )
+  }
 
-	componentWillReceiveProps(){
-		let {nweek} = this.props.match.params
-		console.log(nweek)
-		this.setState({
-			nweek
-		})
-	}
   render() {
     return (
-      <div className="Main">
-        {
-        	this.state.exercises.map((exercise)=>{
-        		return(
-        		<Exercise exercise={exercise}/>
-        		)
-        	})
-        }
-      </div>
+			<div className="App">
+            <Header className="header-div" _handleLogout={this.props._handleLogout} userInfo={this.props.userInfo}/>
+            <div className="navigator-div">
+                <Navigator userInfo={this.props.userInfo}/>
+            </div>
+            <div className="main-div">
+								<Route 
+								exact path={'/'}
+								component={Welcome}
+								/>
+								<Route 
+								 path={'/subject/:nsubject'}
+								component={Subject}
+								/>
+                <Route
+                path={'/profile/:username'}
+                component={Profile}
+                />
+            </div>
+        </div>
+				
+
     );
   }
 }
-
-export default Main;

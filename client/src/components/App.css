@@ -1,32 +1,6 @@
-.App {
-  text-align: center;
-  height: 100%;
-}
-
-
-.App-header {
-  background-color: #3E9EDC;
-  height: 130px;
-  padding: 2%;
-  color: black;
-}
-
-.App-title {
-  font-size: 2.5em;
-}
-
 .App-intro {
   font-size: large;
 }
-
-.col-sm-9{
-  padding: 0 !important;
-}
-
-.col-sm-3{
-  padding: 0 !important;
-}
-
 
 .nav-top{
   display: grid;
