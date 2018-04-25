@@ -13,7 +13,7 @@ export class Navigator extends Component {
         	<img src={this.props.userInfo ? this.props.userInfo.photo : ''} alt="profile-pic"/>
         	<span><p>Slack: {this.props.userInfo ? this.props.userInfo.username:''}</p></span>
 						<Line percent="10" strokeWidth="4" strokeColor="#D3D3D3" />
-						<Line percent={0 || this.props.userInfo.stateallprecourse} strokeWidth="4" strokeColor="#D3D3D3" />
+						<Line percent={this.props.userInfo ? this.props.userInfo.stateallprecourse:0} strokeWidth="4" strokeColor="#D3D3D3" />
 						<nav>
 							{/*Link[to=/week/$]{$}*7*/}
 							<NavLink to="/subject/0">0 - Starting with <i class="devicon-javascript-plain"></i></NavLink>

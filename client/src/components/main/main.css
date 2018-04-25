@@ -1,5 +1,4 @@
 .Main {
-
 	background-color: #c7d3db;
 	height: 100vh;
 	overflow-y: scroll;
@@ -10,35 +9,35 @@
 	padding: 2%;
 	color: black;
 	grid-area: header;
-  }
-  
+}
 
-  .navigator-div{
+.navigator-div{
 	grid-area: navigator;
-  }
-  .main-div{
+}
+
+.main-div{
 	grid-area: main;
-  }
-  
-  .App {
+}
+
+.App {
 	text-align: center;
 	height: 100vh;
 	background-color: #f2f2f2;
 	display: grid !important;
 	grid-template-columns: 1.5fr 2.5fr 2fr;
-	  grid-template-rows: 18vh 82vh ;
-	  grid-template-areas: 
-	  "header header header"
-	  "navigator main main";
-  }
+	grid-template-rows: 18vh 82vh ;
+	grid-template-areas: 
+	"header header header"
+	"navigator main main";
+}
 
-  @media only screen and (max-width: 700px) {
-    .App {
+@media only screen and (max-width: 700px) {
+	.App {
 		grid-template-columns: 2fr;
-	  	grid-template-rows: 20vh 30vh 50vh;
-        grid-template-areas: 
+		grid-template-rows: 20vh 30vh 50vh;
+		grid-template-areas: 
 		"header"
 		"navigator"
 		"main";
-    }
+	}
 }
