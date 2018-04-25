@@ -24,12 +24,11 @@ export class Main extends Component {
   render() {
     return (
 			<div className="App">
-          <Header userInfo={this.props.userInfo}/>
-          <div className="row">
-            <div className="col-sm-12 col-md-6 col-lg-3">
+            <Header className="header-div" userInfo={this.props.userInfo}/>
+            <div className="navigator-div">
                 <Navigator userInfo={this.props.userInfo}/>
             </div>
-            <div className="col-sm-0 col-md-6 col-lg-9">
+            <div className="main-div">
 								<Route 
 								exact path={'/'}
 								component={Welcome}
@@ -43,7 +42,6 @@ export class Main extends Component {
                 component={Profile}
                 />
             </div>
-					</div>
         </div>
 				
 

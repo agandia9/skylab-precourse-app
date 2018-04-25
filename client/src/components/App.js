@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import storage from './services/storage'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 import {Main} from './main/main'
 

@@ -6,12 +6,16 @@ export class Header extends Component {
     render()
     {
         return(
-            <header className="App-header row">
+            <header className="App-header">
                 {/* component title */}
-                <h1 className="App-title col-sm-10">Welcome to precourse {'' || this.props.userInfo.username}</h1>
-                <ul className="col-sm-2 nav-top">
+                <h1 className="App-title">Welcome to precourse {this.props.userInfo ?  this.props.userInfo.username:''}</h1>
+                <ul className="nav-top">
                     <NavLink to="/">Home</NavLink>
-                    <NavLink to="/profile/username">Profile</NavLink>
+                    {this.props.userInfo 
+                    ? <NavLink to={"/profile/"+   this.props.userInfo.username}>Profile</NavLink>
+                    : ''
+                    }
+                    
                 </ul>
             </header>
         )
