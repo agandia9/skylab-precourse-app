@@ -4,19 +4,13 @@
 	overflow-y: scroll;
 }
 
-.App-header {
-	background-color: #3E9EDC;
-	padding: 2%;
-	color: black;
-	grid-area: header;
-}
-
 .navigator-div{
 	grid-area: navigator;
 }
 
 .main-div{
 	grid-area: main;
+	overflow-y: scroll;
 }
 
 .App {
@@ -24,8 +18,8 @@
 	height: 100vh;
 	background-color: #f2f2f2;
 	display: grid !important;
-	grid-template-columns: 1.5fr 2.5fr 2fr;
-	grid-template-rows: 18vh 82vh ;
+	grid-template-columns: 1.2fr 2.8fr 2fr;
+	grid-template-rows: 15vh 85vh ;
 	grid-template-areas: 
 	"header header header"
 	"navigator main main";

@@ -1,0 +1,11 @@
+.main-subject{
+    overflow-y: scroll;
+}
+
+.main-subject h3{
+    font-size: 2.5em;
+}
+
+.main-subject p{
+    font-size: 1.2em;
+}

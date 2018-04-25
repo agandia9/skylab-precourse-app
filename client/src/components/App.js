@@ -23,9 +23,20 @@ class App extends Component {
       userInfo
     })
   }
+  _handleLogout = ()=>{
+    this.setState({
+      isLogged: false
+    })
+  }
+
+
   render() {
     const Logged = this.state.isLogged
-    ? <Main _handlerUserInfo={this._handlerUserInfo} userInfo={this.state.userInfo}/>
+    ? <Main 
+      _handlerUserInfo={this._handlerUserInfo}
+      _handleLogout={this._handleLogout}
+      userInfo={this.state.userInfo}
+      />
     : <Login _handleIsLogged={this._handleIsLogged}/>
   
 

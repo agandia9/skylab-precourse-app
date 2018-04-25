@@ -24,7 +24,7 @@ export class Main extends Component {
   render() {
     return (
 			<div className="App">
-            <Header className="header-div" userInfo={this.props.userInfo}/>
+            <Header className="header-div" _handleLogout={this.props._handleLogout} userInfo={this.props.userInfo}/>
             <div className="navigator-div">
                 <Navigator userInfo={this.props.userInfo}/>
             </div>
