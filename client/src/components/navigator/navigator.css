@@ -35,3 +35,13 @@
 	color: #549ED7;
 	text-decoration: none;
 }
+
+.percentage-title{
+	font-size: 1em;
+	padding-top: 5%;
+	margin-left: -100px;
+}
+
+.Navigator-profile > h3{
+	font-size: 1.8em;
+}

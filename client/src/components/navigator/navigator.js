@@ -12,8 +12,11 @@ export class Navigator extends Component {
         <div className="Navigator-profile">
         	<img src={this.props.userInfo ? this.props.userInfo.photo : ''} alt="profile-pic"/>
         	<span><p>Slack: {this.props.userInfo ? this.props.userInfo.username:''}</p></span>
-						<Line percent="10" strokeWidth="4" strokeColor="#D3D3D3" />
-						<Line percent={this.props.userInfo ? this.props.userInfo.stateallprecourse:0} strokeWidth="4" strokeColor="#D3D3D3" />
+						<p class="percentage-title">Subject completion</p>
+						<Line percent="10" strokeWidth="5" strokeColor="#20bc78" />
+						<p class="percentage-title">Total completion</p>
+						<Line percent={this.props.userInfo ? this.props.userInfo.stateallprecourse:0} strokeWidth="5" strokeColor="#20bc78" />
+						<h3>Subjects</h3>
 						<nav>
 							{/*Link[to=/week/$]{$}*7*/}
 							<NavLink to="/subject/0">0 - Starting with <i class="devicon-javascript-plain"></i></NavLink>
