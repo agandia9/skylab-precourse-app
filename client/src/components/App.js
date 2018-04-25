@@ -3,7 +3,6 @@ import './App.css';
 import storage from './services/storage'
 
 import {Main} from './main/main'
-
 import {Login} from './login/login'
 
 class App extends Component {
@@ -16,6 +15,7 @@ class App extends Component {
   _handleIsLogged =(token)=>{
     this.setState({isLogged:true})
     storage.setToken(token)
+    // redirect to '/'
   }
 
   _handlerUserInfo = (userInfo)=>{

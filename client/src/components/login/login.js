@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './login.css'
 import axios from 'axios'
 import logo from '../../img/skylab-logo.png'
-//const URL_BASE = 'http://192.168.0.29:5000'
+import swal from 'sweetalert2'
 import service from '../services/api'
 export class Login extends Component {
     
@@ -28,9 +28,10 @@ export class Login extends Component {
                 console.log('logged!!')
                 
                 this.props._handleIsLogged(res.data.token)
+                swal('Logged', `Welcome again ${username}`, "success")
             }else{
-                console.error('not logged')
-                //swal
+                // close in 2 seconds...
+                swal('Error', 'Username or Password not correct', 'error')
             }
 
         })
@@ -38,7 +39,7 @@ export class Login extends Component {
     render(){
         return(
             <div className="form-login">
-                <span><img src={logo} alt="skylab-coders"/></span>
+                <span><img className="skylablogo" src={logo} alt="skylab-coders"/></span>
                 <p className="description">Welcome to SkylabCoders Precourse App, where you can find the exercises for preparing the course, keep coding!</p>
                 <form onSubmit={this._handleLogin}>
                     {/* <input onChange={this._handleChangeUser} type="text" placeholder="username"/>

@@ -1,4 +1,6 @@
-
+.skylablogo{
+    width: 100% !important;
+}
 span{
     grid-area: logo;
 }
@@ -7,6 +9,7 @@ form{
 }
 .description{
     font-size: 25px;
+    width: 100% !important;
     grid-area: descript;
 }
 form input{

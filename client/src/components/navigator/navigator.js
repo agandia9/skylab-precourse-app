@@ -26,7 +26,7 @@ export class Navigator extends Component {
 							<NavLink to="/subject/4">4 - Challenges <i class="devicon-javascript-plain"></i></NavLink>
 							<NavLink to="/subject/5">5 - Introduction HTML5 <i class="devicon-html5-plain"></i></NavLink>
 							<NavLink to="/subject/6">6 - Introduction to CSS3 <i class="devicon-css3-plain"></i></NavLink>
-							<NavLink to="/subject/7">7 - Final project and more... 🤓</NavLink>
+							<NavLink to="/subject/7">7 - Final project and more...</NavLink>
 						</nav>
         </div>
       </div>
