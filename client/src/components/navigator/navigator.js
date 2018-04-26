@@ -1,11 +1,11 @@
-import React,  { Component } from 'react';
+import React,  { PureComponent } from 'react';
 import './navigator.css';
 import { NavLink } from 'react-router-dom'
 import { Line } from 'rc-progress';
 import api from '../services/api';
 
 
-export class Navigator extends Component {
+export class Navigator extends PureComponent {
 	state = {userInfo: {}, infoSubjects:[]}
 	componentWillMount(){
 		api.listSubjects().then(res=> {
@@ -35,9 +35,9 @@ export class Navigator extends Component {
         <div className="Navigator-profile">
         	<img src={ this.state.userInfo ? this.state.userInfo.photo : undefined} alt="profile-pic"/>
         	<span><p>Slack: {this.state.userInfo ? this.state.userInfo.username:undefined}</p></span>
-						<p className="percentage-title">Subject completion</p>
+						<p className="percentage-title">Actual Subject %</p>
 						<Line percent={this._handlerCalculateUnitPercentage()[0]} strokeWidth="6" strokeColor="#20bc78" />
-						<p className="percentage-title">Total completion</p>
+						<p className="percentage-title">Precourse %</p>
 						<Line percent={this.state.userInfo ? this.state.userInfo.stateallprecourse:undefined} strokeWidth="6" strokeColor="#20bc78" />
 						<h3>Subjects</h3>
 						<nav>

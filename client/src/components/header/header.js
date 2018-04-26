@@ -17,10 +17,10 @@ export class Header extends Component {
                 {/* component title */}
                 <h1 className="App-title">Welcome {this.props.userInfo ?  this.props.userInfo.username:''}</h1>
                 <ul className="nav-top">
-                    <NavLink to="/">Home</NavLink>
-                     <a className="active" onClick={this._handleLogout}>Logout</a>
+                    <NavLink to="/"> 🏠 Home</NavLink>
+                     <a className="active" onClick={this._handleLogout}>↩️ Logout</a>
                     {this.props.userInfo 
-                    ? <NavLink to={"/profile/"+   this.props.userInfo.username}>Profile</NavLink>
+                    ? <NavLink to={"/profile/"+   this.props.userInfo.username}>👤 Profile</NavLink>
                     : ''
                     }
                     

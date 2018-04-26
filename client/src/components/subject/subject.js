@@ -17,9 +17,9 @@ export class Subject extends Component {
     render(){
         return(
             <div className="main-subject">
-                <h3> Subject {this.state.infoSubject.unit} </h3>
+                <h3> Subject { this.state.infoSubject ? this.state.infoSubject.unit:undefined} </h3>
                 <p>
-                    {this.state.infoSubject.theory}
+                    {this.state.infoSubject? this.state.infoSubject.theory:undefined}
                 </p>
                
                 

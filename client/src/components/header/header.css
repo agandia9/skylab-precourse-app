@@ -4,9 +4,12 @@
 }
 
 .nav-top{
-    font-size: 1em;
+    
+    font-size: 1.2em;
 }
-
+.nav-top a{
+    color: black!important;
+}
 .App-header {
 	background-color: #3E9EDC;
     padding: 2%;
