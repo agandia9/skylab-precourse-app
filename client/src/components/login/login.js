@@ -5,7 +5,7 @@ import logo from '../../img/skylab-logo.png'
 import swal from 'sweetalert2'
 import service from '../services/api'
 export class Login extends Component {
-    
+
     state = {
         username: '',
         password: ''
@@ -23,10 +23,9 @@ export class Login extends Component {
     _handleLogin = (e)=> {
         e.preventDefault()
         const {username, password} = this.state
-        service.login(username, password).then(res=>{
+        return service.login(username, password).then(res=>{
             if(res.status === 'OK'){
                 console.log('logged!!')
-                
                 this.props._handleIsLogged(res.data.token)
                 swal('Logged', `Welcome again ${username}`, "success")
             }else{
@@ -42,44 +41,33 @@ export class Login extends Component {
                 <span><img className="skylablogo" src={logo} alt="skylab-coders"/></span>
                 <p className="description">Welcome to SkylabCoders Precourse App, where you can find the exercises for preparing the course, keep coding!</p>
                 <form onSubmit={this._handleLogin}>
-                    {/* <input onChange={this._handleChangeUser} type="text" placeholder="username"/>
-                    <input onChange={this._handleChangePassword} type="password" placeholder="password"/>
-                    <button type="submit" >click for loggin</button> */}
-                    <div class="field">
-                        <p class="control has-icons-left has-icons-right">
+                    <div className="field">
+                        <p className="control has-icons-left has-icons-right">
                             <input 
-                                class="input" 
+                                className="input" 
                                 type="text"
                                 placeholder="username"
                                 onChange={this._handleChangeUser}
                             />
-                            <span class="icon is-small is-left">
-                            <i class="fas fa-envelope"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                            <i class="fas fa-check"></i>
-                            </span>
+
                         </p>
                         </div>
-                        <div class="field">
-                        <p class="control has-icons-left">
+                        <div className="field">
+                        <p className="control has-icons-left">
                             <input 
-                                class="input" 
+                                className="input" 
                                 type="password" 
                                 placeholder="Password" 
                                 onChange={this._handleChangePassword}
                             />
-                            <span class="icon is-small is-left">
-                            <i class="fas fa-lock"></i>
-                            </span>
                         </p>
                         </div>
-                        <div class="field">
-                        <p class="control">
-                            <button class="button is-success" type="submit">
-                            Login
-                            </button>
-                        </p>
+                        <div className="field">
+                            <p className="control">
+                                <button className="button is-success" type="submit">
+                                Login
+                                </button>
+                            </p>
                     </div>
                 </form>
             </div>
