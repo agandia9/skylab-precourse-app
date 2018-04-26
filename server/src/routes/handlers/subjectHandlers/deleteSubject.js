@@ -3,9 +3,9 @@ const logic = require('../../../logic')
 
 module.exports = (req,res) => {
 
-    const { body : {name,surname,username,password,totalPercentage,photo,slackUser,units}} = req
-
-    logic.createUser(name,surname,username,password,totalPercentage,photo,slackUser,units)
+    const { params : { id } } = req
+    
+    logic.deleteSubject(id)
         .then(id => {
             res.json(success({id}))
         })

@@ -23,3 +23,23 @@ END POINTS API-CLIENT
     // DELETE USER: eliminara un usuario en concreto de la BBDD
     
     deleteUser(id)
+
+    // LIST SUBJECTS: retorna todas las unidades del precurso de skylab
+
+    listSubjects()
+
+    // LIST SUBJECT: retorna una unidad pasando su id por parametro
+    
+    listSubject(id)
+
+    // CREATE SUBJECT: crea una nueva unidad pasando por parametro unit,theory,resource y unitPercentage
+
+    createSubject(unit,theory,resource,unitPercentage)
+
+    // UPDATE SUBJECT: modifica una unidad pasando por parametro la id de la unidad y los campos a modificar
+
+    updateSubject(id,unit,theory,resource,unitPercentage)
+
+    // DELETE SUBJECT: elimina una unidad pasando una id de la unidad a eliminar
+
+    deleteSubject(id)

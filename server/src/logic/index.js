@@ -23,7 +23,7 @@ module.exports = {
         return User.findOne({_id:id})
     },
 
-    createUser(name,surname,username,password,totalPercentage,photo,slackUser,units){
+    createUser(name,surname,username,password,totalPercentage,photo,slackUser){
         return Promise.resolve()
             .then(() => {
                 return User.findOne({ username })
@@ -32,13 +32,13 @@ module.exports = {
 
                 if(user) throw Error(` ${username} already exists`)
 
-                return User.create({name,surname,username,password,totalPercentage,photo,slackUser,units})
+                return User.create({name,surname,username,password,totalPercentage,photo,slackUser})
                     .then(user => user._id)
             })
-    },
+    }, 
 
-    updateUser(id,name,surname,username,password,totalPercentage,photo,slackUser,units){
-        return User.findByIdAndUpdate({_id:id}, {$set:{name,surname,password,totalPercentage,photo,slackUser,units}})
+    updateUser(id,name,surname,username,password,totalPercentage,photo,slackUser){
+        return User.findByIdAndUpdate({_id:id}, {$set:{name,surname,password,totalPercentage,photo,slackUser}})
     },
 
     deleteUser(id){
@@ -57,20 +57,29 @@ module.exports = {
         return Subject.findOne({_id:id})
     },
 
-    createSubject(unit,theory,exercice,resource,unitPercentage){
+    createSubject(unit,theory,resource,unitPercentage){
+        console.log(unit)
         return Promise.resolve()
             .then(subject => {
-                return Subject.create({unit,theory,exercice,resource,unitPercentage})
+                return Subject.create({unit,theory,resource,unitPercentage})
                     .then(subject => subject._id)
             })
     },
 
-    updateSubject(){
-        //TODO
+    updateSubject(id,unit,theory,resource,unitPercentage){
+        return Promise.resolve()
+            .then(subject => {
+                return Subject.findByIdAndUpdate({_id:id}, {$set:{unit,theory,resource,unitPercentage}})
+                    .then(subject => subject._id)
+            })
     },
 
-    deleteSubject(){
-        //TODO
+    deleteSubject(id){
+        return Promise.resolve()
+            .then(subject => {
+                return Subject.findByIdAndRemove({_id:id})
+                    .then(subject => subject._id)
+            })
     },
 
     listExercises(){
@@ -89,12 +98,20 @@ module.exports = {
             })
     },
 
-    updateExercice(){
-        //TODO
+    updateExercice(id,index,title,example,status){
+        return Promise.resolve()
+            .then(exercice => {
+                return Exercise.findByIdAndUpdate({_id:id},{$set:{index,title,example,status}})
+                    .then(exercice => exercice._id)
+            })
     },
 
-    deleteExercice(){
-        //TODO
+    deleteExercice(id){
+        return Promise.resolve()
+            .then(exercice => {
+                return Exercise.findByIdAndRemove({_id:id})
+                    .then(exercice => exercice._id)
+            })
     }
 
 }

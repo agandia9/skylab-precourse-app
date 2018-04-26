@@ -3,11 +3,12 @@ const logic = require('../../../logic')
 
 module.exports = (req,res) => {
 
-    const { body : {name,surname,username,password,totalPercentage,photo,slackUser,units}} = req
+    const { params : { id } } = req
+    const { body : { unit, theory, resource, unitPercentage } } = req
 
-    logic.createUser(name,surname,username,password,totalPercentage,photo,slackUser,units)
+    logic.updateSubject(id,unit,theory,resource,unitPercentage)
         .then(id => {
-            res.json(success({id}))
+            res.json(success(id))
         })
         .catch(err => {
             res.json(fail(err.message))

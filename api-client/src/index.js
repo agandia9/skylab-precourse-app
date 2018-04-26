@@ -45,8 +45,28 @@ const api = {
 
     deleteUser(id){
         return this._call('delete', `deleteUser/${id}`)
-    }
+    },
 
+    listSubjects(){
+        return this._call('get', 'listSubjects')
+    },
+
+    listSubject(id){
+        return this._call('get', `listSubject/${id}`)
+    },
+
+    createSubject(unit,theory,resource,unitPercentage){
+        return this._call('post', 'createSubject', {unit,theory,resource,unitPercentage})
+    },
+
+    updateSubject(id,unit,theory,resource,unitPercentage){
+        return this._call('put', `updateSubject/${id}`, {unit,theory,resource,unitPercentage})
+    },
+
+    deleteSubject(id){
+        return this._call('delete', `deleteSubject/${id}`)
+    }
+    
 }
 
 module.exports = api
