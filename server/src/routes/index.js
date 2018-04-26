@@ -21,7 +21,7 @@ router.delete('/deleteUser/:id', deleteUser)
 
 router.get('/listSubjects', listSubjects)
 
-router.get('/listSubject/:id', listSubject)
+router.get('/listSubject/:unit', listSubject)
 
 router.post('/createSubject', jsonBodyParser, createSubject)
 

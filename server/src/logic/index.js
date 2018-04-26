@@ -53,8 +53,8 @@ module.exports = {
         return Subject.find({})
     },
 
-    listSubject(id){
-        return Subject.findOne({_id:id})
+    listSubject(unit){
+        return Subject.findOne({unit:unit})
     },
 
     createSubject(unit,theory,resource,unitPercentage){

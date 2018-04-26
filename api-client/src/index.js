@@ -51,8 +51,8 @@ const api = {
         return this._call('get', 'listSubjects')
     },
 
-    listSubject(id){
-        return this._call('get', `listSubject/${id}`)
+    listSubject(unit){
+        return this._call('get', `listSubject/${unit}`)
     },
 
     createSubject(unit,theory,resource,unitPercentage){

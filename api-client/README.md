@@ -28,9 +28,9 @@ END POINTS API-CLIENT
 
     listSubjects()
 
-    // LIST SUBJECT: retorna una unidad pasando su id por parametro
+    // LIST SUBJECT: retorna una unidad pasando su numero de unidad por parametro
     
-    listSubject(id)
+    listSubject(unit)
 
     // CREATE SUBJECT: crea una nueva unidad pasando por parametro unit,theory,resource y unitPercentage
 

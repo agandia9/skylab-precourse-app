@@ -3,9 +3,9 @@ const logic = require('../../../logic')
 
 module.exports = (req,res) => {
     
-    const { params : { id } } = req
+    const { params : { unit } } = req
 
-    logic.listSubject(id)
+    logic.listSubject(unit)
         .then(subject => res.json(success(subject)))
         .catch(err => res.json(fail(err.message)))
 
