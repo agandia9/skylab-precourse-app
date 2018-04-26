@@ -1,12 +1,19 @@
-import React,  { PureComponent } from 'react';
+import React,  { Component } from 'react';
 import './navigator.css';
 import { NavLink } from 'react-router-dom'
 import { Line } from 'rc-progress';
+import api from '../services/api';
 
 
-export class Navigator extends PureComponent {
-	state = {userInfo: {}}
+export class Navigator extends Component {
+	state = {userInfo: {}, infoSubjects:[]}
+	componentWillMount(){
+		api.listSubjects().then(res=> {
+			console.log(res.data)
+			return this.setState({infoSubjects:res.data})
+		})
 
+	}
 	componentWillReceiveProps(nextProps){
 		console.log('receive props...')
 		console.log(nextProps)
@@ -14,6 +21,12 @@ export class Navigator extends PureComponent {
 			this.setState({
 				userInfo: nextProps.userInfo
 			})
+	}
+
+	_handlerCalculateUnitPercentage = () => {
+		return this.state.infoSubjects.map(subject => subject.unitPercentage)
+			.filter(nums => nums !== 0)
+			.sort((a,b) => a-b)			
 	}
   render() {
 		console.log('render...')
@@ -23,20 +36,16 @@ export class Navigator extends PureComponent {
         	<img src={ this.state.userInfo ? this.state.userInfo.photo : undefined} alt="profile-pic"/>
         	<span><p>Slack: {this.state.userInfo ? this.state.userInfo.username:undefined}</p></span>
 						<p className="percentage-title">Subject completion</p>
-						<Line percent="10" strokeWidth="5" strokeColor="#20bc78" />
+						<Line percent={this._handlerCalculateUnitPercentage()[0]} strokeWidth="6" strokeColor="#20bc78" />
 						<p className="percentage-title">Total completion</p>
-						<Line percent={this.state.userInfo ? this.state.userInfo.stateallprecourse:undefined} strokeWidth="5" strokeColor="#20bc78" />
+						<Line percent={this.state.userInfo ? this.state.userInfo.stateallprecourse:undefined} strokeWidth="6" strokeColor="#20bc78" />
 						<h3>Subjects</h3>
 						<nav>
-							{/*Link[to=/week/$]{$}*7*/}
-							<NavLink to="/subject/0">0 - Starting with <i className="devicon-javascript-plain"></i></NavLink>
-							<NavLink to="/subject/1">1 - Methods <i className="devicon-javascript-plain"></i></NavLink>
-							<NavLink to="/subject/2">2 - Objects <i className="devicon-javascript-plain"></i></NavLink>
-							<NavLink to="/subject/3">3 - Functions and calls <i className="devicon-javascript-plain"></i></NavLink>
-							<NavLink to="/subject/4">4 - Challenges <i className="devicon-javascript-plain"></i></NavLink>
-							<NavLink to="/subject/5">5 - Introduction HTML5 <i className="devicon-html5-plain"></i></NavLink>
-							<NavLink to="/subject/6">6 - Introduction to CSS3 <i className="devicon-css3-plain"></i></NavLink>
-							<NavLink to="/subject/7">7 - Final project and more...</NavLink>
+							{
+								this.state.infoSubjects.map((subject)=>{
+									return <NavLink key={subject.unit} to={`/subject/${subject.unit}`}>{subject.title}</NavLink>
+								})
+							}
 						</nav>
         </div>
 				
