@@ -3,7 +3,6 @@ import './App.css';
 import storage from './services/storage'
 
 import {Main} from './main/main'
-
 import {Login} from './login/login'
 
 class App extends Component {
@@ -14,8 +13,9 @@ class App extends Component {
   }
 
   _handleIsLogged =(token)=>{
-    this.setState({isLogged:true})
     storage.setToken(token)
+    this.setState({isLogged:true})
+    // redirect to '/'
   }
 
   _handlerUserInfo = (userInfo)=>{
@@ -31,7 +31,7 @@ class App extends Component {
 
 
   render() {
-    const Logged = this.state.isLogged
+    const Logged = this.state.isLogged 
     ? <Main 
       _handlerUserInfo={this._handlerUserInfo}
       _handleLogout={this._handleLogout}
