@@ -6,11 +6,16 @@ import {Exercise} from '../exercise/exercise'
 export class Subject extends Component {
     state = {nsubject: 0, infoSubject:{}}
     componentWillReceiveProps(nextProps){
-        
         let {nsubject} = nextProps.match.params
-       api.listSubject(parseInt(nsubject)).then(res =>{
-            this.setState({infoSubject:res.data})
-            console.log(this.state.infoSubject)
+            api.listSubject(parseInt(nsubject)).then(res =>{
+                this.setState({infoSubject:res.data})
+                console.log(this.state.infoSubject)
+        })
+
+    }
+    componentWillMount(){
+            api.listSubject(parseInt(this.props.match.params.nsubject)).then(res =>{
+                this.setState({infoSubject:res.data})
         })
 
 	}
