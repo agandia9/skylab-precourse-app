@@ -3,9 +3,9 @@ const logic = require('../../../logic')
 
 module.exports = (req,res) => {
 
-    const { body: { unit, theory, resource, unitPercentage } } = req
+    const { body: { unit, title, theory, resource, unitPercentage } } = req
 
-    logic.createSubject(unit, theory, resource, unitPercentage)
+    logic.createSubject(unit, title, theory, resource, unitPercentage)
         .then(id => {
             res.json(success({id}))
         })

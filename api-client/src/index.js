@@ -65,6 +65,26 @@ const api = {
 
     deleteSubject(id){
         return this._call('delete', `deleteSubject/${id}`)
+    },
+
+    listExercises(){
+        return this._call('get', 'listExercises')
+    },
+
+    listExercise(id){
+        return this._call('get', `listExercise/${id}`)
+    },
+
+    createExercise(index,title,example,status){
+        return this._call('post', 'createExercise', {index,title,example,status})
+    },
+
+    updateExercise(id,index,title,example,status){
+        return this._call('put', `updateExercise/${id}`, {index,title,example,status})
+    },
+
+    deleteExercise(id){
+        return this._call('delete', `deleteExercise/${id}`)
     }
     
 }

@@ -4,9 +4,9 @@ const logic = require('../../../logic')
 module.exports = (req,res) => {
 
     const { params : { id } } = req
-    const { body : { unit, theory, resource, unitPercentage } } = req
+    const { body : { unit, title, theory, resource, unitPercentage } } = req
 
-    logic.updateSubject(id,unit,theory,resource,unitPercentage)
+    logic.updateSubject(id,unit,title,theory,resource,unitPercentage)
         .then(id => {
             res.json(success(id))
         })

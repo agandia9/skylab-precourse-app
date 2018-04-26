@@ -57,19 +57,18 @@ module.exports = {
         return Subject.findOne({unit:unit})
     },
 
-    createSubject(unit,theory,resource,unitPercentage){
-        console.log(unit)
+    createSubject(unit,title,theory,resource,unitPercentage){
         return Promise.resolve()
             .then(subject => {
-                return Subject.create({unit,theory,resource,unitPercentage})
+                return Subject.create({unit,title,theory,resource,unitPercentage})
                     .then(subject => subject._id)
             })
     },
 
-    updateSubject(id,unit,theory,resource,unitPercentage){
+    updateSubject(id,unit,title,theory,resource,unitPercentage){
         return Promise.resolve()
             .then(subject => {
-                return Subject.findByIdAndUpdate({_id:id}, {$set:{unit,theory,resource,unitPercentage}})
+                return Subject.findByIdAndUpdate({_id:id}, {$set:{unit,title,theory,resource,unitPercentage}})
                     .then(subject => subject._id)
             })
     },
