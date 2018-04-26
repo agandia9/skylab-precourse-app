@@ -43,3 +43,23 @@ END POINTS API-CLIENT
     // DELETE SUBJECT: elimina una unidad pasando una id de la unidad a eliminar
 
     deleteSubject(id)
+
+    //LIST EXERCISES: devuelve todos los ejercicios del curso
+
+    listExercises()
+
+    // LIST EXERCISE: devuleve un ejercicio en concreto pasando como parametro su id
+
+    listExercise(id)
+
+    // CREATE EXERCISE: crea un ejercicio pasando como parametro el indicem el titulo, un ejemplo y el estado
+    
+    createExercise(index,title,example,status)
+
+    // UPDATE EXERCISE: actualiza un ejercicio pasando como parametro su id y modificando sus elementos
+
+    updateExercise(id,index,title,example,status)
+
+    // DELETE EXERCISE: elimina un ejercicio pasando como parametro su id
+
+    deleteExercise(id)
