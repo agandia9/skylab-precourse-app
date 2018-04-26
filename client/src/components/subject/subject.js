@@ -1,9 +1,9 @@
-import React, {Component } from 'react'
+import React, {PureComponent } from 'react'
 import api from '../services/api'
 import './subject.css'
 import {Exercise} from '../exercise/exercise'
 
-export class Subject extends Component {
+export class Subject extends PureComponent {
     state = {nsubject: 0, infoSubject:{}}
     componentWillReceiveProps(nextProps){
         let {nsubject} = nextProps.match.params
@@ -22,7 +22,7 @@ export class Subject extends Component {
     render(){
         return(
             <div className="main-subject">
-                <h3> Subject { this.state.infoSubject ? this.state.infoSubject.unit:undefined} </h3>
+                <h3>{ this.state.infoSubject ? this.state.infoSubject.title:undefined} </h3>
                 <p>
                     {this.state.infoSubject? this.state.infoSubject.theory:undefined}
                 </p>

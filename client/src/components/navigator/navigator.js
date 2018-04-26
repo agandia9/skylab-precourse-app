@@ -28,7 +28,9 @@ export class Navigator extends PureComponent {
 			.filter(nums => nums !== 0)
 			.sort((a,b) => a-b)			
 	}
-
+	_handlerIsCompleted = (subject)=>{
+		return subject.unitPercentage === 100 ? 'completedSubject' : ''
+	}
   render() {
 		console.log('render...')
     return (
@@ -44,7 +46,7 @@ export class Navigator extends PureComponent {
 						<nav>
 							{
 								this.state.infoSubjects.map((subject)=>{
-									return <NavLink key={subject.unit} to={`/subject/${subject.unit}`} isActive={() => subject.unitPercentage !== 0 ? true : false}>{subject.title}</NavLink>
+									return <NavLink key={subject.unit} to={`/subject/${subject.unit}`} className={this._handlerIsCompleted(subject)}>{subject.title}</NavLink>
 								})
 							}
 						</nav>
