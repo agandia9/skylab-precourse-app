@@ -28,17 +28,20 @@ export class Navigator extends PureComponent {
 			.filter(nums => nums !== 0)
 			.sort((a,b) => a-b)			
 	}
-	_handlerIsCompleted = (subject)=>{
-		return subject.unitPercentage === 100 ? 'completedSubject' : ''
+
+	_handlerColourStatusSubject = (subject)=>{
+		return subject.unitPercentage === 100 ? 'completedSubject' : subject.unitPercentage > 0 && subject.unitPercentage < 99 ? 'actualSubject' : ''
 	}
+
   render() {
 		console.log('render...')
     return (
       <div>
         <div className="Navigator-profile">
+					<h3>{this.state.userInfo ? this.state.userInfo.name : undefined}</h3>
         	<img src={ this.state.userInfo ? this.state.userInfo.photo : undefined} alt="profile-pic"/>
         	<span><p>Slack: {this.state.userInfo ? this.state.userInfo.username:undefined}</p></span>
-						<p className="percentage-title">Actual Subject %</p>
+						<p className="percentage-title">Actual Subject {this._handlerCalculateUnitPercentage()[0]}%</p>
 						<Line percent={this._handlerCalculateUnitPercentage()[0]} strokeWidth="6" strokeColor="#20bc78" />
 						<p className="percentage-title">Precourse %</p>
 						<Line percent={this.state.userInfo ? this.state.userInfo.stateallprecourse:undefined} strokeWidth="6" strokeColor="#20bc78" />
@@ -46,7 +49,7 @@ export class Navigator extends PureComponent {
 						<nav>
 							{
 								this.state.infoSubjects.map((subject)=>{
-									return <NavLink key={subject.unit} to={`/subject/${subject.unit}`} className={this._handlerIsCompleted(subject)}>{subject.title}</NavLink>
+									return <NavLink key={subject.unit} to={`/subject/${subject.unit}`} className={this._handlerColourStatusSubject(subject)}>{subject.title}</NavLink>
 								})
 							}
 						</nav>

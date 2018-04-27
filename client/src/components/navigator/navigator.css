@@ -49,3 +49,8 @@
 .completedSubject{
 	color: #58B87D !important;
 }
+
+.actualSubject{
+	font-weight: bolder;
+	color: #127c3b !important;
+}
