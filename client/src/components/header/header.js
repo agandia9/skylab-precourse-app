@@ -15,7 +15,8 @@ export class Header extends Component {
             
             <header className="App-header">
                 {/* component title */}
-                <h1 className="App-title">Welcome {this.props.userInfo ?  this.props.userInfo.username:''}</h1>
+                <h1 className="App-title">Hello {this.props.userInfo ?  this.props.userInfo.username:''}</h1>
+                <div className="App-user-info"> 
                 <ul className="nav-top">
                     <NavLink to="/"> 🏠 Home</NavLink>
                      <a className="active" onClick={this._handleLogout}>↩️ Logout</a>
@@ -25,6 +26,11 @@ export class Header extends Component {
                     }
                     
                 </ul>
+                
+                    <img src={ this.props.userInfo ? this.props.userInfo.photo : undefined} alt="profile-pic"/>
+                    <h3>{this.props.userInfo ? this.props.userInfo.name : undefined}</h3>
+                    <span><p>Slack: {this.props.userInfo ? this.props.userInfo.username:undefined}</p></span>
+            </div>
             </header>
         )
     }

@@ -24,9 +24,10 @@ export class Navigator extends PureComponent {
 	}
 
 	_handlerCalculateUnitPercentage = () => {
-		return this.state.infoSubjects.map(subject => subject.unitPercentage)
-			.filter(nums => nums !== 0)
-			.sort((a,b) => a-b)			
+		return this.state.infoSubjects
+					.map(subject => subject.unitPercentage)
+					.filter(nums => nums !== 0)
+					.sort((a,b) => a-b)[0]	
 	}
 
 	_handlerColourStatusSubject = (subject)=>{
@@ -38,13 +39,12 @@ export class Navigator extends PureComponent {
     return (
       <div>
         <div className="Navigator-profile">
-					<h3>{this.state.userInfo ? this.state.userInfo.name : undefined}</h3>
-        	<img src={ this.state.userInfo ? this.state.userInfo.photo : undefined} alt="profile-pic"/>
-        	<span><p>Slack: {this.state.userInfo ? this.state.userInfo.username:undefined}</p></span>
-						<p className="percentage-title">Actual Subject {this._handlerCalculateUnitPercentage()[0]}%</p>
-						<Line percent={this._handlerCalculateUnitPercentage()[0]} strokeWidth="6" strokeColor="#20bc78" />
-						<p className="percentage-title">Precourse %</p>
-						<Line percent={this.state.userInfo ? this.state.userInfo.stateallprecourse:undefined} strokeWidth="6" strokeColor="#20bc78" />
+						<div className="status-precourse">
+							<p className="percentage-title">Actual Subject {this._handlerCalculateUnitPercentage()}%</p>
+							<Line percent={this._handlerCalculateUnitPercentage()} strokeWidth="6" trailWidth="1.5" strokeColor="#20bc78" />
+							<p className="percentage-title">Precourse %</p>
+							<Line percent={this.state.userInfo ? this.state.userInfo.stateallprecourse:undefined} strokeWidth="6" trailWidth="1.5" strokeColor="#20bc78" />
+						</div>
 						<h3>Subjects</h3>
 						<nav>
 							{

@@ -13,8 +13,7 @@ export class Profile extends PureComponent {
 		componentDidMount(nextProps){
 			api.listUser(storage.getToken()).then(res => this.setState({userInfo: res.data}) )
 		}
-		// no use because always pass same params, then no exec in update cycle
-		//componentWillReceiveProps
+		
   render() {
   	
     return (
