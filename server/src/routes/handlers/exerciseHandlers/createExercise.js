@@ -3,9 +3,9 @@ const logic = require('../../../logic')
 
 module.exports = (req,res) => {
 
-    const { body : { index,title,example,status } } = req
+    const { body : { unit,index,title,example,status } } = req
     
-    logic.createExercice(index,title,example,status)
+    logic.createExercice(unit,index,title,example,status)
         .then(id => {
             res.json(success({id}))
         })
