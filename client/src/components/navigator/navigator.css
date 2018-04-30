@@ -12,10 +12,17 @@
 .Navigator-profile{
 	padding: 25px;
 }
-.Navigator-profile > img{
-	height: 200px;
-	border-radius: 50%;
-	width: 200px;
+
+.status-precourse{
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+
+.percentage-title{
+	font-size: 1em;
+	padding-top: 5%;
+	margin-left: -100px;
 }
 
 .Navigator-profile > span{
@@ -28,6 +35,9 @@
 	display: grid;
 	
 }
+.Navigator-profile > h3{
+	font-size: 1.8em;
+}
 
 .Navigator-profile > nav a{
 	font-size: 2vh;
@@ -35,13 +45,11 @@
 	color: #549ED7;
 	text-decoration: none;
 }
-
-.percentage-title{
-	font-size: 1em;
-	padding-top: 5%;
-	margin-left: -100px;
+.completedSubject{
+	color: #58B87D !important;
 }
 
-.Navigator-profile > h3{
-	font-size: 1.8em;
+.actualSubject{
+	font-weight: bolder;
+	color: #127c3b !important;
 }

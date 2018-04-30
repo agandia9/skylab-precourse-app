@@ -1,17 +1,33 @@
 .App-title{
     font-size: 2.5em;  
-    display: inline;
 }
 
 .nav-top{
-    font-size: 1em;
+    font-size: 1.2em;
 }
-
+.nav-top > a{
+    color: black!important;
+}
 .App-header {
 	background-color: #3E9EDC;
     padding: 2%;
 	color: black;
     grid-area: header;
-    justify-content: space-between;
     display: inline-flex;
+    align-items: center;
+}
+
+.App-user-info > img{
+	border-radius: 50%;
+	width: 100px;
+}
+
+.App-user-info {
+    
+    
+    width: 3%;
+}
+
+.App-user-info > h3{
+    font-size: 1.5em;
 }

@@ -1,57 +1,32 @@
-import React, {Component } from 'react'
+import React, {PureComponent } from 'react'
+import api from '../services/api'
 import './subject.css'
 import {Exercise} from '../exercise/exercise'
 
-export class Subject extends Component {
-    state = {nsubject: 0}
+export class Subject extends PureComponent {
+    state = {nsubject: 0, infoSubject:{}}
     componentWillReceiveProps(nextProps){
-        
-		let {nsubject} = nextProps.match.params
-		console.log(nsubject)
-		this.setState({
-			nsubject
-		})
+        let {nsubject} = nextProps.match.params
+            api.listSubject(parseInt(nsubject)).then(res =>{
+                this.setState({infoSubject:res.data})
+                console.log(this.state.infoSubject)
+        })
+
+    }
+    componentWillMount(){
+            api.listSubject(parseInt(this.props.match.params.nsubject)).then(res =>{
+                this.setState({infoSubject:res.data})
+        })
+
 	}
     render(){
         return(
             <div className="main-subject">
-                <h3> Subjectssss.....{this.state.nsubject} </h3>
-                <p>aqui encontraremos info, recursos y descripción sobre el tema, y renderizará todos los ejercicios
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi facere aspernatur necessitatibus ex dolorem neque quos similique, maiores earum iusto consequatur, ducimus repudiandae, veniam corrupti odit minus suscipit quaerat?
-                Voluptate quo labore voluptatem beatae vero laudantium! Maiores esse ratione adipisci sequi maxime quidem, debitis tenetur vero? Perferendis reiciendis, magni expedita, consequuntur consequatur ad commodi, repellat omnis odio molestiae nobis!
-                Tenetur dignissimos explicabo soluta quis ab deserunt ipsum alias minus doloribus dolorem ex at, neque repellendus consectetur perferendis atque maxime corrupti dolorum, quasi sint eum sequi iusto inventore. Odit, totam.
-                Omnis vitae eius provident, ex, voluptatum veniam ea quasi id porro dolorem iste ullam dolor, deserunt atque libero et commodi? Sequi iste inventore quod architecto odio hic cum illo odit.
+                <h3>{ this.state.infoSubject ? this.state.infoSubject.title:undefined} </h3>
+                <p>
+                    {this.state.infoSubject? this.state.infoSubject.theory:undefined}
                 </p>
-                <p>aqui encontraremos info, recursos y descripción sobre el tema, y renderizará todos los ejercicios
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi facere aspernatur necessitatibus ex dolorem neque quos similique, maiores earum iusto consequatur, ducimus repudiandae, veniam corrupti odit minus suscipit quaerat?
-                Voluptate quo labore voluptatem beatae vero laudantium! Maiores esse ratione adipisci sequi maxime quidem, debitis tenetur vero? Perferendis reiciendis, magni expedita, consequuntur consequatur ad commodi, repellat omnis odio molestiae nobis!
-                Tenetur dignissimos explicabo soluta quis ab deserunt ipsum alias minus doloribus dolorem ex at, neque repellendus consectetur perferendis atque maxime corrupti dolorum, quasi sint eum sequi iusto inventore. Odit, totam.
-                Omnis vitae eius provident, ex, voluptatum veniam ea quasi id porro dolorem iste ullam dolor, deserunt atque libero et commodi? Sequi iste inventore quod architecto odio hic cum illo odit.
-                </p>
-                <p>aqui encontraremos info, recursos y descripción sobre el tema, y renderizará todos los ejercicios
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi facere aspernatur necessitatibus ex dolorem neque quos similique, maiores earum iusto consequatur, ducimus repudiandae, veniam corrupti odit minus suscipit quaerat?
-                Voluptate quo labore voluptatem beatae vero laudantium! Maiores esse ratione adipisci sequi maxime quidem, debitis tenetur vero? Perferendis reiciendis, magni expedita, consequuntur consequatur ad commodi, repellat omnis odio molestiae nobis!
-                Tenetur dignissimos explicabo soluta quis ab deserunt ipsum alias minus doloribus dolorem ex at, neque repellendus consectetur perferendis atque maxime corrupti dolorum, quasi sint eum sequi iusto inventore. Odit, totam.
-                Omnis vitae eius provident, ex, voluptatum veniam ea quasi id porro dolorem iste ullam dolor, deserunt atque libero et commodi? Sequi iste inventore quod architecto odio hic cum illo odit.
-                </p>
-                <p>aqui encontraremos info, recursos y descripción sobre el tema, y renderizará todos los ejercicios
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi facere aspernatur necessitatibus ex dolorem neque quos similique, maiores earum iusto consequatur, ducimus repudiandae, veniam corrupti odit minus suscipit quaerat?
-                Voluptate quo labore voluptatem beatae vero laudantium! Maiores esse ratione adipisci sequi maxime quidem, debitis tenetur vero? Perferendis reiciendis, magni expedita, consequuntur consequatur ad commodi, repellat omnis odio molestiae nobis!
-                Tenetur dignissimos explicabo soluta quis ab deserunt ipsum alias minus doloribus dolorem ex at, neque repellendus consectetur perferendis atque maxime corrupti dolorum, quasi sint eum sequi iusto inventore. Odit, totam.
-                Omnis vitae eius provident, ex, voluptatum veniam ea quasi id porro dolorem iste ullam dolor, deserunt atque libero et commodi? Sequi iste inventore quod architecto odio hic cum illo odit.
-                </p>
-                <p>aqui encontraremos info, recursos y descripción sobre el tema, y renderizará todos los ejercicios
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi facere aspernatur necessitatibus ex dolorem neque quos similique, maiores earum iusto consequatur, ducimus repudiandae, veniam corrupti odit minus suscipit quaerat?
-                Voluptate quo labore voluptatem beatae vero laudantium! Maiores esse ratione adipisci sequi maxime quidem, debitis tenetur vero? Perferendis reiciendis, magni expedita, consequuntur consequatur ad commodi, repellat omnis odio molestiae nobis!
-                Tenetur dignissimos explicabo soluta quis ab deserunt ipsum alias minus doloribus dolorem ex at, neque repellendus consectetur perferendis atque maxime corrupti dolorum, quasi sint eum sequi iusto inventore. Odit, totam.
-                Omnis vitae eius provident, ex, voluptatum veniam ea quasi id porro dolorem iste ullam dolor, deserunt atque libero et commodi? Sequi iste inventore quod architecto odio hic cum illo odit.
-                </p>
-                <p>aqui encontraremos info, recursos y descripción sobre el tema, y renderizará todos los ejercicios
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi facere aspernatur necessitatibus ex dolorem neque quos similique, maiores earum iusto consequatur, ducimus repudiandae, veniam corrupti odit minus suscipit quaerat?
-                Voluptate quo labore voluptatem beatae vero laudantium! Maiores esse ratione adipisci sequi maxime quidem, debitis tenetur vero? Perferendis reiciendis, magni expedita, consequuntur consequatur ad commodi, repellat omnis odio molestiae nobis!
-                Tenetur dignissimos explicabo soluta quis ab deserunt ipsum alias minus doloribus dolorem ex at, neque repellendus consectetur perferendis atque maxime corrupti dolorum, quasi sint eum sequi iusto inventore. Odit, totam.
-                Omnis vitae eius provident, ex, voluptatum veniam ea quasi id porro dolorem iste ullam dolor, deserunt atque libero et commodi? Sequi iste inventore quod architecto odio hic cum illo odit.
-                </p>
+               
                 
             </div>
         )

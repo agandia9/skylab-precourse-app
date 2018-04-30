@@ -27,10 +27,15 @@ export class Login extends Component {
             if(res.status === 'OK'){
                 console.log('logged!!')
                 this.props._handleIsLogged(res.data.token)
-                swal('Logged', `Welcome again ${username}`, "success")
+                swal({
+                    title: 'Logged',
+                    text: `Welcome again ${username}`,
+                    type:'success',
+                    timer: 1500,
+                    showConfirmButton: false,
+                  })
             }else{
-                // close in 2 seconds...
-                swal('Error', 'Username or Password not correct', 'error')
+                swal('Error', 'Username or Password not correct',)
             }
 
         })
