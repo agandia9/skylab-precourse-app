@@ -26,8 +26,13 @@ export class Subject extends PureComponent {
                 <p>
                     {this.state.infoSubject? this.state.infoSubject.theory:undefined}
                 </p>
-               
-                
+                <div className="main-subject-exercises">
+                    {
+                        this.state.infoSubject.exercises ? this.state.infoSubject.exercises.map((exercise, index) => {
+                            return <Exercise key={index} exercise={exercise}/>
+                        }):undefined
+                    }
+                </div>
             </div>
         )
     }

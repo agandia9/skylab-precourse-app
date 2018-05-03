@@ -8,7 +8,7 @@ export class Exercise extends Component {
   render() {
     return (
       <div className="exercise">
-        <p>{this.props.exercise}</p>
+        <p>Holi {this.props.exercise}</p>
       </div>
     );
   }

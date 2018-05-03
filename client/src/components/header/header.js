@@ -17,20 +17,20 @@ export class Header extends Component {
                 {/* component title */}
                 <h1 className="App-title">Hello {this.props.userInfo ?  this.props.userInfo.username:''}</h1>
                 <div className="App-user-info"> 
-                <ul className="nav-top">
+                    <div>
+                        <img src={ this.props.userInfo ? this.props.userInfo.photo : undefined} alt="profile-pic"/>
+                        <h3>{this.props.userInfo ? this.props.userInfo.name : undefined}</h3>
+                        <span><p>Slack: {this.props.userInfo ? this.props.userInfo.username:undefined}</p></span>
+                    </div>
+                    <ul className="nav-top">
                     <NavLink to="/"> 🏠 Home</NavLink>
                      <a className="active" onClick={this._handleLogout}>↩️ Logout</a>
                     {this.props.userInfo 
                     ? <NavLink to={"/profile/"+   this.props.userInfo.username}>👤 Profile</NavLink>
                     : ''
                     }
-                    
                 </ul>
-                
-                    <img src={ this.props.userInfo ? this.props.userInfo.photo : undefined} alt="profile-pic"/>
-                    <h3>{this.props.userInfo ? this.props.userInfo.name : undefined}</h3>
-                    <span><p>Slack: {this.props.userInfo ? this.props.userInfo.username:undefined}</p></span>
-            </div>
+                </div>
             </header>
         )
     }
