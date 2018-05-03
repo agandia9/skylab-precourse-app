@@ -1,6 +1,20 @@
-.exercise{
+.exercise-base{
 	padding: 25px;
-	height: 100px;
+	height: 100%;
 	width: 100%;
 	background-color: #f2f2f2;
+}
+
+.exercise-incom{
+	padding: 25px;
+	height: 100%;
+	width: 100%;
+	background-color: #e08d8d;
+}
+
+.exercise-comp{
+	padding: 25px;
+	height: 100%;
+	width: 100%;
+	background-color: #b6db9b;
 }

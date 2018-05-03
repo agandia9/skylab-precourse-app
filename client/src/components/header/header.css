@@ -27,10 +27,14 @@
 .App-user-info > *{
     float:left;
 }
-
+.App-user-info{
+    width: 250px;
+    justify-content: space-between;
+    display: flex;
+}
 .App-user-info >div >h3{
     font-size: 1.2em;
 }
 .App-user-info >ul{
-    margin-top: 10%;
+    margin-top: 8%;
 }

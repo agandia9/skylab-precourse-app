@@ -4,9 +4,8 @@ import { NavLink } from 'react-router-dom'
 import { Line } from 'rc-progress';
 import api from '../services/api';
 
-
 export class Navigator extends PureComponent {
-	state = {userInfo: {}, infoSubjects:[]}
+	state = {userInfo: {}, infoSubjects:[], lastSubject: 0}
 	componentWillMount(){
 		api.listSubjects().then(res=> {
 			console.log(res.data)
@@ -15,7 +14,6 @@ export class Navigator extends PureComponent {
 
 	}
 	componentWillReceiveProps(nextProps){
-		console.log('receive props...')
 		console.log(nextProps)
 			
 			this.setState({
@@ -24,10 +22,14 @@ export class Navigator extends PureComponent {
 	}
 
 	_handlerCalculateUnitPercentage = () => {
-		return this.state.infoSubjects
+		let lastSubject = this.state.infoSubjects
 					.map(subject => subject.unitPercentage)
 					.filter(nums => nums !== 0)
 					.sort((a,b) => a-b)[0]	
+		this.setState({
+			lastSubject
+		})
+		return lastSubject
 	}
 
 	_handlerColourStatusSubject = (subject)=>{
