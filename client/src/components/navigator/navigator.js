@@ -22,14 +22,10 @@ export class Navigator extends PureComponent {
 	}
 
 	_handlerCalculateUnitPercentage = () => {
-		let lastSubject = this.state.infoSubjects
+		return this.state.infoSubjects
 					.map(subject => subject.unitPercentage)
 					.filter(nums => nums !== 0)
 					.sort((a,b) => a-b)[0]	
-		this.setState({
-			lastSubject
-		})
-		return lastSubject
 	}
 
 	_handlerColourStatusSubject = (subject)=>{
