@@ -6,7 +6,13 @@ function Exercise (props) {
   let {title, status, example, index} = props.exercise
     return (
       <div className={status === 0? 'exercise-base' : status === 1? 'exercise-comp': 'exercise-incomp'}>
-        <h3>{index +'. ' + title}</h3>
+        <span className="status-section">
+          <h3 id="exercise-title">{index +'. ' + title}</h3>
+          <div>
+            <button className="button-ok">OK</button>
+            <button className="button-ko">KO</button>
+          </div>
+        </span>
         <p>status: {status}</p>
         <pre><code className="javascript">{example}</code></pre>
       </div>

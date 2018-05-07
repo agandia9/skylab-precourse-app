@@ -2,7 +2,7 @@
 	padding: 25px;
 	height: 100%;
 	width: 100%;
-	background-color: #f2f2f2;
+	background-color: #eaeaea;
 }
 
 .exercise-incom{
@@ -17,4 +17,44 @@
 	height: 100%;
 	width: 100%;
 	background-color: #b6db9b;
+}
+
+.status-section{
+	display: inline-flex;
+    -ms-flex-pack: justify;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.status-section > div {
+	width: 120px;
+	display: inline-flex;
+	justify-content: space-around;
+}
+.status-section > div button{
+	font-size: 1.1em;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+}
+
+.status-section > div button:focus{
+	outline: none;
+}
+
+.button-ko{
+	background-color: #ce1616;
+	border: 2px #661c18 solid;
+    margin: auto;
+}
+
+
+.button-ok{
+	background-color: #2fa35b;
+	border: 2px #1e6037 solid;
+    margin: auto;
+}
+
+#exercise-title{
+    font-size: 1.5em;
 }
