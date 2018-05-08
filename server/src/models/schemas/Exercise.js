@@ -9,7 +9,7 @@ module.exports = new Schema({
         required: true
     },
     index : String,
-    title : String,
-    example : String,
-    status : Number
+    statement : String,
+    example : String
+    //status : Number
 })

@@ -17,10 +17,19 @@ module.exports = {
 
     listUsers(){
         return User.find({})
+        .populate({
+            path : 'course.subject',
+            populate : { path : 'exercises'}
+        })
+    
     },
 
     listUser(id){
         return User.findOne({_id:id})
+        .populate({
+            path : 'course.subject',
+            populate: { path : 'exercises'}
+        })
     },
 
     createUser(name,surname,username,password,totalPercentage,photo,slackUser){
@@ -30,12 +39,58 @@ module.exports = {
             })
             .then(user => {
 
-                if(user) throw Error(` ${username} already exists`)
-
-                return User.create({name,surname,username,password,totalPercentage,photo,slackUser})
+                this.arraySubject()
+                .then(subjects => {
+                    return User.create({name,surname,username,password,totalPercentage,photo,slackUser,subjects})
                     .then(user => user._id)
+                })
+                /*if(user) throw Error(` ${username} already exists`)
+                
+                subjects = []
+
+                return this.listSubjects()
+                .then(data => {
+                    for(i = 0; i < data.length; i++){
+                        subjects.push({porcentage:0,subject:data[i]._id})
+                    }
+                })
+                .then(() => User.create({name,surname,username,password,totalPercentage,photo,slackUser,subjects}))
+                .then(user => user._id)*/
+                
             })
     }, 
+
+    arrayExercise(){
+
+        const exercises = []
+
+        return Promise.resolve()
+        .then(() => this.listExercises())
+        .then(data => {
+            for(i = 0; i < data.length; i++){
+                exercises.push({status:0,exercice:data[i]._id})
+            }
+            return exercises
+        })
+    },
+
+    arraySubject(){
+
+        const subjects = []
+
+        return Promise.resolve()
+        .then(() => this.arrayExercise())
+        .then(res => {
+            return this.listSubjects()
+            .then(data => {
+                for(i = 0; i < data.length; i++){
+                    subjects.push({porcentage:0,subject:data[i]._id,exercises:res})
+                }
+                
+                return subjects 
+            })
+        })
+    },
 
     updateUser(id,name,surname,username,password,totalPercentage,photo,slackUser){
         return User.findByIdAndUpdate({_id:id}, {$set:{name,surname,password,totalPercentage,photo,slackUser}})
@@ -54,7 +109,7 @@ module.exports = {
     },
 
     listSubject(unit){
-        return Subject.findOne({unit:unit})
+        return Subject.findOne({unit:unit}).populate('exercises')
     },
 
     createSubject(unit,title,theory,resource,unitPercentage,exercises){
@@ -87,6 +142,10 @@ module.exports = {
 
     listExercise(id){
         return Exercise.findOne({_id:id})
+    },
+
+    listExercisesUnit(unit){
+        return Exercise.find({unit:unit})
     },
 
     /*createExercice(unit,index,title,example,status){

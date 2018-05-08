@@ -11,5 +11,5 @@ module.exports = {
     listUser,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
 }

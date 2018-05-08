@@ -1,7 +1,7 @@
 const express = require('express')
 const {login, listUsers, listUser, createUser, updateUser, deleteUser} = require('./handlers/userHandlers')
 const {listSubjects, listSubject, createSubject, updateSubject, deleteSubject} = require('./handlers/subjectHandlers')
-const {listExercises, listExercise, createExercise, updateExercise, deleteExercise} = require('./handlers/exerciseHandlers')
+const {listExercises, listExercise, createExercise, updateExercise, deleteExercise, listExercisesUnit} = require('./handlers/exerciseHandlers')
 const bodyParser = require('body-parser')
 const jsonBodyParser = bodyParser.json()
 const jwtValidator = require('./handlers/jwtValidator')
@@ -39,5 +39,7 @@ router.post('/createExercise', jsonBodyParser, createExercise)
 router.put('/updateExercise/:id', jsonBodyParser, updateExercise)
 
 router.delete('/deleteExercise/:id', deleteExercise)
+
+router.get('/listExercisesUnit/:unit', listExercisesUnit)
 
 module.exports = router
