@@ -5,7 +5,7 @@ function Exercise (props) {
   console.log(props)
   let {title, status, example, index} = props.exercise
     return (
-      <div className={status === 0? 'exercise-base' : status === 1? 'exercise-comp': 'exercise-incomp'}>
+      <div className={status === 0? 'exercise exercise-base' : status === 1? 'exercise exercise-comp': 'exercise exercise-incomp'}>
         <span className="status-section">
           <h3 id="exercise-title">{index +'. ' + title}</h3>
           <div>

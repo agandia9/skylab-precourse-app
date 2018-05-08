@@ -1,21 +1,19 @@
-.exercise-base{
-	padding: 25px;
+.exercise{
+	margin-top: 20px;
+	padding: 20px;
 	height: 100%;
 	width: 100%;
+}
+
+.exercise-base{
 	background-color: #eaeaea;
 }
 
 .exercise-incom{
-	padding: 25px;
-	height: 100%;
-	width: 100%;
 	background-color: #e08d8d;
 }
 
 .exercise-comp{
-	padding: 25px;
-	height: 100%;
-	width: 100%;
 	background-color: #b6db9b;
 }
 
@@ -40,6 +38,7 @@
 
 .status-section > div button:focus{
 	outline: none;
+	border:0;
 }
 
 .button-ko{
