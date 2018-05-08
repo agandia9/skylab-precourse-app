@@ -13,21 +13,28 @@
     padding: 2%;
 	color: black;
     grid-area: header;
-    display: inline-flex;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
-.App-user-info > img{
-	border-radius: 50%;
-	width: 100px;
+.App-user-info > div > img{
+    border-radius: 50%;
+    
+	width: 75px;
 }
 
-.App-user-info {
-    
-    
-    width: 3%;
+.App-user-info > *{
+    float:left;
 }
-
-.App-user-info > h3{
-    font-size: 1.5em;
+.App-user-info{
+    width: 250px;
+    justify-content: space-between;
+    display: flex;
+}
+.App-user-info >div >h3{
+    font-size: 1.2em;
+}
+.App-user-info >ul{
+    margin-top: 8%;
 }

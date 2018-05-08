@@ -23,22 +23,26 @@ export class Login extends Component {
     _handleLogin = (e)=> {
         e.preventDefault()
         const {username, password} = this.state
-        return service.login(username, password).then(res=>{
-            if(res.status === 'OK'){
-                console.log('logged!!')
-                this.props._handleIsLogged(res.data.token)
-                swal({
-                    title: 'Logged',
-                    text: `Welcome again ${username}`,
-                    type:'success',
-                    timer: 1500,
-                    showConfirmButton: false,
-                  })
-            }else{
-                swal('Error', 'Username or Password not correct',)
-            }
-
-        })
+        return service.login(username, password)
+            .then(res=>{
+                if(res.status === 'OK'){
+                    console.log('logged!!')
+                    this.props._handleIsLogged(res.data.token)
+                    swal({
+                        title: 'Logged',
+                        text: `Welcome again ${username}`,
+                        type:'success',
+                        timer: 1500,
+                        showConfirmButton: false,
+                    })
+                }else{
+                    swal('Error', 'Username or Password not correct',)
+                }
+            })
+            //not works.... for when lost connection with back
+            // .catch((err)=>{
+            //     swal('Error', err,)
+            // })
     }
     render(){
         return(

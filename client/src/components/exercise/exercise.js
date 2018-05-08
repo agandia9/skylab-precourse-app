@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import './exercise.css';
 
-export class Exercise extends Component {
-  componentWillMount(){
-    console.log(this.props)
-  }
-  render() {
+function Exercise (props) {
+  console.log(props)
+  let {title, status, example, index} = props.exercise
     return (
-      <div className="exercise">
-        <p>{this.props.exercise}</p>
+      <div className={status === 0? 'exercise-base' : status === 1? 'exercise-comp': 'exercise-incomp'}>
+        <span className="status-section">
+          <h3 id="exercise-title">{index +'. ' + title}</h3>
+          <div>
+            <button className="button-ok">OK</button>
+            <button className="button-ko">KO</button>
+          </div>
+        </span>
+        <p>status: {status}</p>
+        <pre><code className="javascript">{example}</code></pre>
       </div>
     );
   }
-}
+
+export default Exercise

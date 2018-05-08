@@ -1,0 +1,13 @@
+.profile input{
+    height: 50px;
+}
+
+.profile {
+    display: grid;
+}
+
+.profile button{
+    height: 50px;
+    font-size: 1.5em;
+}
+
