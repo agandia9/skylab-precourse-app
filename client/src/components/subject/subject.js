@@ -25,7 +25,7 @@ export class Subject extends PureComponent {
         return(
             <div className="main-subject">
                 <h3>{ this.state.infoSubject ? 'Unit ' + this.state.infoSubject.unit + ' - ' +this.state.infoSubject.title :undefined} </h3>
-                <p>
+                <p className="theory">
                     {this.state.infoSubject? this.state.infoSubject.theory:undefined}
                 </p>
                 <div className="main-subject-exercises">

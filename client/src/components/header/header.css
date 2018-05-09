@@ -27,7 +27,7 @@
     float:left;
 }
 .App-user-info{
-    width: 250px;
+    width: 200px;
     justify-content: space-between;
     display: flex;
 }
