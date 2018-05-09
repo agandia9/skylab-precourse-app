@@ -1,7 +1,11 @@
 .main-subject{
     overflow-y: scroll;
 }
-
+.info-subject{
+    height: 100%;
+    margin-top:20px;
+    margin-bottom:20px;
+}
 .main-subject h3{
     font-size: 2.1em;
     margin-top:20px;
@@ -10,9 +14,9 @@
 
 .main-subject .theory{
     font-size: 1.1em;
-    float: left;
+    text-align: left;
 }
 
 .main-subject-exercises{
-    margin-top: 50px;
+    
 }

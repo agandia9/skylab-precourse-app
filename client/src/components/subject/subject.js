@@ -24,10 +24,12 @@ export class Subject extends PureComponent {
     render(){
         return(
             <div className="main-subject">
-                <h3>{ this.state.infoSubject ? 'Unit ' + this.state.infoSubject.unit + ' - ' +this.state.infoSubject.title :undefined} </h3>
-                <p className="theory">
-                    {this.state.infoSubject? this.state.infoSubject.theory:undefined}
-                </p>
+                <div className="info-subject">
+                    <h3>{ this.state.infoSubject ? 'Unit ' + this.state.infoSubject.unit + ' - ' +this.state.infoSubject.title :undefined} </h3>
+                    <p className="theory">
+                        {this.state.infoSubject? this.state.infoSubject.theory:undefined}
+                    </p>
+                </div>
                 <div className="main-subject-exercises">
                     {
                         this.state.infoSubject.exercises ? this.state.infoSubject.exercises.map((exercise, index) => {
