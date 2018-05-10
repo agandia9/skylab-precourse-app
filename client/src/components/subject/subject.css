@@ -1,19 +1,27 @@
 .main-subject{
     overflow-y: scroll;
+    padding: 20px;
+    margin-top: 30px;
 }
 .info-subject{
     height: 100%;
     margin-top:20px;
-    margin-bottom:20px;
+    
 }
 .main-subject h3{
     font-size: 2.1em;
-    margin-top:20px;
-    margin-bottom:20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    
 }
 
 .main-subject .theory{
     font-size: 1.1em;
+    text-align: inherit;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 20px;
     text-align: left;
 }
 

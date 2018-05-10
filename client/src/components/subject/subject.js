@@ -7,7 +7,7 @@ export class Subject extends PureComponent {
     state = {infoSubject:{}}
     componentWillReceiveProps(nextProps){
         let {nsubject} = nextProps.match.params
-        //change for listUser and render the weeks when the endpoint ready's
+        //change for listUser and render the weeks when the endpoint ready's with states
             api.listSubject(parseInt(nsubject)).then(res =>{
                 this.setState({infoSubject:res.data})
         })

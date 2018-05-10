@@ -2,7 +2,6 @@
 	margin-bottom: 20px;
 	padding: 20px;
 	height: 100%;
-	width: 99%;
 	border-radius: 4px;
 }
 
@@ -28,32 +27,34 @@
 
 .status-section > div {
 	width: 120px;
-	display: inline-flex;
-	justify-content: space-around;
-}
-.status-section > div button{
-	font-size: 1.1em;
-	height: 40px;
-	width: 40px;
-	border-radius: 50%;
+	position: relative;
 }
 
 .status-section > div button:focus{
 	outline: none;
-	border:0;
+	border:3px;
 }
 
+
+.status-section > div button{
+	margin: auto;
+	font-size: 1.1em;
+	border: 0;
+    height: 40px;
+    position: absolute;
+	top: -20px;
+	width: 40px;
+}
 .button-ko{
 	background-color: #ce1616;
-	border: 2px #661c18 solid;
-    margin: auto;
+    right: -20px;
+    
 }
 
 .button-ok{
-	
 	background-color: #2fa35b;
-	border: 2px #1e6037 solid;
-    margin: auto;
+    right: 20px;
+	border-bottom-left-radius: 30%;
 }
 
 #exercise-statement{

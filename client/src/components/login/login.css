@@ -12,18 +12,31 @@ form{
     width: 100% !important;
     grid-area: descript;
 }
-form input{
+.input-login{
     height: 50px !important;
     font-size: 25px!important;
+    text-align: center;
+    border: 0;
+    box-shadow: none;
+    border-bottom: 2px solid #4D91C6;
+    border-radius: 0px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.input-login:focus{
+    outline: 0 !important;
+    box-shadow: none !important;
 }
 .control{
     text-align: center !important;
 }
-.button.is-success{
+.button.is-success, .button.is-success:hover{
     width: 200px !important;
     height: 50px;
     font-size: 20px;
+    background-color: #3991cb;
 }
+
 .form-login {
     height: 100vh;
     display: grid !important;
