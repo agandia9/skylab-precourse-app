@@ -5,8 +5,10 @@ import Exercise from '../exercise/exercise'
 
 export class Subject extends PureComponent {
     state = {infoSubject:{}}
+    
     componentWillReceiveProps(nextProps){
-        let {nsubject} = nextProps.match.params
+        console.log(nextProps)
+        let {nsubject} = nextProps.info.match.params
         //change for listUser and render the weeks when the endpoint ready's with states
             api.listSubject(parseInt(nsubject)).then(res =>{
                 this.setState({infoSubject:res.data})
@@ -15,7 +17,7 @@ export class Subject extends PureComponent {
     }
     componentWillMount(){
         //change for listUser and render the weeks when the endpoint ready's
-            api.listSubject(parseInt(this.props.match.params.nsubject)).then(res =>{
+            api.listSubject(parseInt(this.props.info.match.params.nsubject)).then(res =>{
                 console.log(res)
                 this.setState({infoSubject:res.data})
         })

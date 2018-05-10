@@ -14,12 +14,12 @@ export class Main extends Component {
 	constructor(){
 		super()
 		this.state={
-			
 		}
 	}
   componentDidMount(){
     api.listUser(storage.getToken()).then(res => this.props._handlerUserInfo(res.data) )
   }
+
 
   render() {
     return (
@@ -34,8 +34,8 @@ export class Main extends Component {
 								component={Welcome}
 								/>
 								<Route 
-								 path={'/subject/:nsubject'}
-								component={Subject}
+                 path={'/subject/:nsubject'}
+                render={(props) => <Subject userInfo={this.props.userInfo} info={props}/>}
 								/>
                 <Route
                 path={'/profile/:username'}
