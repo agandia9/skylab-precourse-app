@@ -39,9 +39,9 @@ export class Navigator extends PureComponent {
         <div className="Navigator-profile">
 						<div className="status-precourse">
 							<p className="percentage-title">Actual Subject {this._handlerCalculateUnitPercentage()}%</p>
-							<Line percent={this._handlerCalculateUnitPercentage()} strokeWidth="6" trailWidth="1.5" strokeColor="#20bc78" />
+							<Line percent={this._handlerCalculateUnitPercentage()} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
 							<p className="percentage-title">Precourse %</p>
-							<Line percent={this.state.userInfo ? this.state.userInfo.stateallprecourse:undefined} strokeWidth="6" trailWidth="1.5" strokeColor="#20bc78" />
+							<Line percent={this.state.userInfo ? this.state.userInfo.stateallprecourse:undefined} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
 						</div>
 						<h3>Subjects</h3>
 						<nav>

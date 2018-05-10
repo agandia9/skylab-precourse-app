@@ -1,5 +1,7 @@
 .App-title{
-    font-size: 2.5em;  
+    font-size: 2.5em; 
+    font-weight: bold;
+    color: white; 
 }
 
 .nav-top{
@@ -9,7 +11,7 @@
     color: black!important;
 }
 .App-header {
-	background-color: #3E9EDC;
+	background-color: #3991cb; 
     padding: 2%;
 	color: black;
     grid-area: header;
@@ -20,7 +22,6 @@
 
 .App-user-info > div > img{
     border-radius: 50%;
-    
 	width: 75px;
 }
 
@@ -28,7 +29,7 @@
     float:left;
 }
 .App-user-info{
-    width: 250px;
+    width: 200px;
     justify-content: space-between;
     display: flex;
 }

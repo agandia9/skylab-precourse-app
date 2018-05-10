@@ -6,6 +6,8 @@
 
 .navigator-div{
 	grid-area: navigator;
+	background-color: #3f4352;
+    color: white;
 }
 
 .main-div{

@@ -51,25 +51,26 @@ export class Login extends Component {
                 <p className="description">Welcome to SkylabCoders Precourse App, where you can find the exercises for preparing the course, keep coding!</p>
                 <form onSubmit={this._handleLogin}>
                     <div className="field">
-                        <p className="control has-icons-left has-icons-right">
+                        
                             <input 
-                                className="input" 
+                                className="input input-login" 
                                 type="text"
                                 placeholder="username"
                                 onChange={this._handleChangeUser}
                             />
 
-                        </p>
+                        
                         </div>
                         <div className="field">
-                        <p className="control has-icons-left">
+                        
                             <input 
-                                className="input" 
+                                className="input input-login" 
                                 type="password" 
-                                placeholder="Password" 
+                                placeholder="password" 
+                                required
                                 onChange={this._handleChangePassword}
                             />
-                        </p>
+                        
                         </div>
                         <div className="field">
                             <p className="control">

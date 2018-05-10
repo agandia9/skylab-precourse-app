@@ -1,13 +1,42 @@
 .profile input{
-    height: 50px;
+    height: 30px;
+    width: 50%;
 }
 
-.profile {
-    display: grid;
+.profile div{
+    display: inline-flex;
+    width: 100%;
+    padding: 50px;
+    justify-content: center;
+}
+.profile div img{
+    height: 30%;
+    width: 30%;
+    border-radius: 50%;
+    
+}
+
+.profile div input:not([type=file]){
+    margin-left: 20px;
+    font-size: 15px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid #4D91C6;
+    
+}
+
+.profile div label{
+    font-size: 18px;
 }
 
 .profile button{
+    background-color: #4D91C6;
     height: 50px;
+    width: 80%;
     font-size: 1.5em;
+}
+.profile button:active, .profile button:focus{
+    outline: 0;
 }
 
