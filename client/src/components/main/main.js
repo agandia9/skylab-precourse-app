@@ -1,4 +1,4 @@
-import React,  { Component } from 'react';
+import React,{ Component } from 'react';
 import api from '../services/api'
 import storage from '../services/storage'
 import {Exercise} from '../exercise/exercise'
@@ -34,13 +34,14 @@ export class Main extends Component {
 								component={Welcome}
 								/>
 								<Route 
-                 path={'/subject/:nsubject'}
+                 exact path={'/subject/:nsubject'}
                 render={(props) => <Subject userInfo={this.props.userInfo} info={props}/>}
 								/>
                 <Route
                 path={'/profile/:username'}
                 component={Profile}
                 />
+                
             </div>
         </div>
 				
