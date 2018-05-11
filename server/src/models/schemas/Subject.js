@@ -9,8 +9,7 @@ module.exports = new Schema({
     resource : Array,
     exercises : [
         {
-            type: ObjectId,
-            ref: 'Exercise'
+            type: ObjectId, ref: 'Exercise'
         }
     ]
 })

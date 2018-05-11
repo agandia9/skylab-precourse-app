@@ -18,8 +18,10 @@ module.exports = {
     listUsers(){
         return User.find({})
         .populate({
-            path : 'course.subject',
-            populate : { path : 'exercises'}
+            path : 'subjects.exercises.exercise'
+        })
+        .populate({
+            path : 'subjects.subject'
         })
     
     },
@@ -27,9 +29,20 @@ module.exports = {
     listUser(id){
         return User.findOne({_id:id})
         .populate({
-            path : 'course.subject',
-            populate: { path : 'exercises'}
+            path : 'subjects.exercises.exercise'
         })
+        .populate({
+            path : 'subjects.subject'
+        })
+    },
+
+    calculatePorcenatage(id){
+
+        let count = 0;
+
+        this.listUser(id)
+        .then(res => console.log(res))
+
     },
 
     createUser(name,surname,username,password,totalPercentage,photo,slackUser){
@@ -39,8 +52,11 @@ module.exports = {
             })
             .then(user => {
 
+                //if(user) throw Error(` ${username} already exists`)
+
                 this.arraySubject()
                 .then(subjects => {
+                    console.log(subjects)
                     return User.create({name,surname,username,password,totalPercentage,photo,slackUser,subjects})
                     .then(user => user._id)
                 })
@@ -60,15 +76,15 @@ module.exports = {
             })
     }, 
 
-    arrayExercise(){
+    arrayExercise(unit){
 
         const exercises = []
 
         return Promise.resolve()
-        .then(() => this.listExercises())
-        .then(data => {
-            for(i = 0; i < data.length; i++){
-                exercises.push({status:0,exercice:data[i]._id})
+        .then(() => this.listExercisesUnit(unit))
+        .then(practises => {
+            for(i = 0; i < practises.length; i++){
+                exercises.push({status:0,exercise:practises[i]._id})
             }
             return exercises
         })
@@ -79,15 +95,22 @@ module.exports = {
         const subjects = []
 
         return Promise.resolve()
-        .then(() => this.arrayExercise())
-        .then(res => {
+        .then(() => {
             return this.listSubjects()
-            .then(data => {
-                for(i = 0; i < data.length; i++){
-                    subjects.push({porcentage:0,subject:data[i]._id,exercises:res})
-                }
+            .then(units => {
+                return Promise.all(units.map(unit => {
+                    return this.arrayExercise(unit._id)
+                    .then(practises => {
+                        //console.log(practises)
+                        subjects.push({porcentage:0,subject:unit._id,exercises:practises})
+                        //console.log(subjects)
+                    })
+                }))
                 
-                return subjects 
+            })
+            .then(() => {
+                //console.log(subjects)
+                return subjects
             })
         })
     },
@@ -157,7 +180,7 @@ module.exports = {
             })
     },*/
 
-    createExercice(unit,index,title,example,status){
+    createExercice(unit,index,statement,example,status){
         return Promise.resolve()
             .then(() => {
                 this.listSubject(unit)
@@ -165,7 +188,7 @@ module.exports = {
                         if(!subject) throw Error(` unit ${unit} doesnt exist`)
 
                         const unit = mongoose.mongo.ObjectId(subject._id)
-                        Exercise.create({unit,index,title,example,status})
+                        Exercise.create({unit,index,statement,example,status})
                             .then(exercise => {
                                 return Subject.findByIdAndUpdate({ _id : exercise.unit },{ $push: { exercises : exercise._id }})
                                     then(exercise => exercise._id)
@@ -174,10 +197,10 @@ module.exports = {
             })
     },
 
-    updateExercice(id,unit,index,title,example,status){
+    updateExercice(id,unit,index,statement,example,status){
         return Promise.resolve()
             .then(exercice => {
-                return Exercise.findByIdAndUpdate({_id:id},{$set:{unit,index,title,example,status}})
+                return Exercise.findByIdAndUpdate({_id:id},{$set:{unit,index,statement,example,status}})
                     .then(exercice => exercice._id)
             })
     },
