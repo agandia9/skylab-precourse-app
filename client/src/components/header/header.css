@@ -37,5 +37,9 @@
     font-size: 1.2em;
 }
 .App-user-info >ul{
-    margin-top: 8%;
+    height: 100%;
+}
+.App-user-info >ul a{
+    padding: 3%;
+    text-decoration: transparent;
 }

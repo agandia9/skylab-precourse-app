@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './login.css'
-import axios from 'axios'
 import logo from '../../img/skylab-logo.png'
 import swal from 'sweetalert2'
 import service from '../services/api'

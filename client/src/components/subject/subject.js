@@ -17,6 +17,7 @@ export class Subject extends PureComponent {
         this.setState({nsubject})
         let {subjects} = this.props.userInfo
         if(!subjects){
+            console.log('reload?..')
             api.listUser(storage.getToken()).then(res => this.setState({subjects:res.data.subjects}) )
         }
         else{
@@ -28,15 +29,14 @@ export class Subject extends PureComponent {
         return(
             <div className="main-subject">
                  <div className="info-subject">
-                    <h3>{ this.state.subjects.length > 1 ? 'Unit ' + this.state.subjects[parseInt(this.state.nsubject)].subject.unit + ' - ' +this.state.subjects[parseInt(this.state.nsubject)].subject.title :undefined} </h3>
+                    <h3>{ this.state.subjects.length > 1 ? 'Unit ' + this.state.subjects[parseInt(this.state.nsubject, 10)].subject.unit + ' - ' +this.state.subjects[parseInt(this.state.nsubject, 10)].subject.title :undefined} </h3>
                     <p className="theory">
-                        {this.state.subjects.length > 1 ? this.state.subjects[parseInt(this.state.nsubject)].subject.theory:undefined}
+                        {this.state.subjects.length > 1 ? this.state.subjects[parseInt(this.state.nsubject, 10)].subject.theory:undefined}
                     </p>
                 </div>
                 <div className="main-subject-exercises">
                     {
-                       this.state.subjects.length > 1 ? this.state.subjects[parseInt(this.state.nsubject)].exercises.map((exercise, index) => {
-                            console.log(exercise)
+                       this.state.subjects.length > 1 ? this.state.subjects[parseInt(this.state.nsubject, 10)].exercises.map((exercise, index) => {
                             return <Exercise key={index} exercise={exercise}/>
                      }):undefined
                     }

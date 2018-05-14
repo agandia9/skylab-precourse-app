@@ -1,8 +1,7 @@
 import React,{ Component } from 'react';
 import api from '../services/api'
 import storage from '../services/storage'
-import {Exercise} from '../exercise/exercise'
-import { Route, NavLink } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import {Navigator} from '../navigator/navigator'
 import {Profile} from '../profile/profile'
 import {Welcome} from '../welcome/welcome'

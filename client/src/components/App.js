@@ -9,7 +9,7 @@ class App extends Component {
   state = {isLogged: false, userInfo:{}}
 
   componentDidMount (){
-    storage.getToken() ? this.setState({isLogged:true}) : undefined
+     return storage.getToken() ? this.setState({isLogged:true}) : undefined
   }
 
   _handleIsLogged =(token)=>{
