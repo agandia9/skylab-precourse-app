@@ -87,8 +87,8 @@ const api = {
         return this._call('delete', `deleteExercise/${id}`)
     },
 
-    changeStatus(id,idSubject, idExercise, value){
-        return this._call('put', 'changeStatus', {idSubject, idExercise, value})
+    changeStatus(idSubject, idExercise, value, token){
+        return this._call('put', 'changeStatus', {idSubject, idExercise, value}, token)
     }
     
 }
