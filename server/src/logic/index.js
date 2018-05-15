@@ -36,13 +36,23 @@ module.exports = {
         })
     },
 
-    calculatePorcenatage(id){
+    changeStatus(id,idSubject,idExercise,value){
 
-        let count = 0;
+        return this.listUser(id)
+        .then(user => {
+            user.subjects.forEach(subject => {
+                if(subject._id == idSubject){
+                    subject.exercises.forEach(exercise => {
+                        if(exercise._id == idExercise){
+                            exercise.status = value
+                        }
+                    })
+                }
+            })
 
-        this.listUser(id)
-        .then(res => console.log(res))
-
+            return user.save()
+        })
+        
     },
 
     createUser(name,surname,username,password,totalPercentage,photo,slackUser){

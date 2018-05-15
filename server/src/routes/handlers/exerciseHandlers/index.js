@@ -4,6 +4,7 @@ const createExercise = require('./createExercise')
 const updateExercise = require('./updateExercise')
 const deleteExercise = require('./deleteExercise')
 const listExercisesUnit = require('./listExercisesUnit')
+const changeStatus = require('./changeStatus')
 
 module.exports = {
     listExercises,
@@ -11,5 +12,6 @@ module.exports = {
     createExercise,
     updateExercise,
     deleteExercise,
-    listExercisesUnit
+    listExercisesUnit,
+    changeStatus
 }
