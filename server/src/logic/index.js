@@ -55,6 +55,46 @@ module.exports = {
         
     },
 
+    changePorcentage(id,idSubject){
+
+        const statusArray = []
+
+        return this.listUser(id)
+        .then(user => {
+            user.subjects.forEach(subject => {
+                if(subject._id == idSubject){
+                    subject.exercises.forEach(exercise => {
+                        statusArray.push(exercise.status)
+                    })
+                }
+            })
+
+            total = statusArray.length
+            spect = statusArray.filter(status => status === 1)
+            total2 = spect.length
+            porcentage = (total2 * 100)/total
+            return porcentage
+        })
+        .then(res => {
+            
+        return User.findOneAndUpdate(
+            { _id: id,
+                subjects:{
+                    $elemMatch:{
+                        _id: idSubject
+                    }
+                }
+            }, 
+            { $set: { 'subjects.$.porcentage': res } });
+        })
+
+    },
+
+    changeTotalPorcentage(id){
+
+        
+    },
+
     createUser(name,surname,username,password,totalPercentage,photo,slackUser){
         return Promise.resolve()
             .then(() => {
