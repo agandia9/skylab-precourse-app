@@ -93,6 +93,10 @@ const api = {
 
     changePorcentage(token,idSubject){
         return this._call('put', 'changePorcentage', {idSubject}, token)
+    },
+
+    changeTotalPorcentage(token){
+        return this._call('put', 'changeTotalPorcentage', undefined, token)
     }
     
 }

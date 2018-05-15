@@ -4,6 +4,7 @@ const listUser = require('./listUser')
 const createUser = require('./createUser')
 const updateUser = require('./updateUser')
 const deleteUser = require('./deleteUser')
+const changeTotalPorcentage = require('./changeTotalPorcentage')
 
 module.exports = {
     login,
@@ -12,4 +13,5 @@ module.exports = {
     createUser,
     updateUser,
     deleteUser,
+    changeTotalPorcentage
 }
