@@ -6,7 +6,6 @@
 .profile div{
     display: inline-flex;
     width: 100%;
-    padding: 50px;
     justify-content: center;
 }
 .profile div img{
@@ -35,6 +34,10 @@
     height: 50px;
     width: 80%;
     font-size: 1.5em;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    border:0;
 }
 .profile button:active, .profile button:focus{
     outline: 0;
