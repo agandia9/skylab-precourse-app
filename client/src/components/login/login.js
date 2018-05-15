@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './login.css'
-import axios from 'axios'
 import logo from '../../img/skylab-logo.png'
 import swal from 'sweetalert2'
 import service from '../services/api'
@@ -36,13 +35,14 @@ export class Login extends Component {
                         showConfirmButton: false,
                     })
                 }else{
-                    swal('Error', 'Username or Password not correct',)
+                    swal('Error', 'Username or Password not correct', 'error')
                 }
             })
             //not works.... for when lost connection with back
-            // .catch((err)=>{
-            //     swal('Error', err,)
-            // })
+            .catch((err)=>{
+                swal('Error', err,'')
+                console.log(err.message)
+            })
     }
     render(){
         return(
@@ -51,11 +51,11 @@ export class Login extends Component {
                 <p className="description">Welcome to SkylabCoders Precourse App, where you can find the exercises for preparing the course, keep coding!</p>
                 <form onSubmit={this._handleLogin}>
                     <div className="field">
-                        
                             <input 
                                 className="input input-login" 
                                 type="text"
                                 placeholder="username"
+                                required
                                 onChange={this._handleChangeUser}
                             />
 

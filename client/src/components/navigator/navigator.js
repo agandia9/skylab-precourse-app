@@ -8,21 +8,18 @@ export class Navigator extends PureComponent {
 	state = {userInfo: {}, infoSubjects:[], lastSubject: 0}
 	componentWillMount(){
 		api.listSubjects().then(res=> {
-			console.log(res.data)
-			return this.setState({infoSubjects:res.data})
+			this.setState({infoSubjects:res.data})
 		})
 
 	}
 	componentWillReceiveProps(nextProps){
-		console.log(nextProps)
-			
 			this.setState({
 				userInfo: nextProps.userInfo
 			})
 	}
 
 	_handlerCalculateUnitPercentage = () => {
-		return this.state.infoSubjects
+			return this.state.infoSubjects
 					.map(subject => subject.unitPercentage)
 					.filter(nums => nums !== 0)
 					.sort((a,b) => a-b)[0]	
@@ -33,7 +30,7 @@ export class Navigator extends PureComponent {
 	}
 
   render() {
-		console.log('render...')
+		
     return (
       <div>
         <div className="Navigator-profile">
@@ -47,7 +44,7 @@ export class Navigator extends PureComponent {
 						<nav>
 							{
 								this.state.infoSubjects.map((subject)=>{
-									return <NavLink key={subject.unit} to={`/subject/${subject.unit}`} className={this._handlerColourStatusSubject(subject)}>{subject.title}</NavLink>
+									return <NavLink key={subject.unit} to={`/subject/${subject.unit}`} className={this._handlerColourStatusSubject(subject)}>{subject.unit} - {subject.title}</NavLink>
 								})
 							}
 						</nav>

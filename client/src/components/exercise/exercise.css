@@ -4,7 +4,9 @@
 	height: 100%;
 	border-radius: 4px;
 }
-
+.exercise pre{
+	margin-bottom: 0;
+}
 .exercise-base{
 	background-color: #eaeaea;
 }
@@ -59,7 +61,8 @@
 
 #exercise-statement{
 	text-align: justify;
-	width: 90%;
 	font-weight: bold;
-    font-size: 1.1em;
+	font-size: 1.1em;
+	margin-top: 25px;
+	line-height: 1.6;
 }
