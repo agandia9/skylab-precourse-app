@@ -1,10 +1,10 @@
-import React, {PureComponent } from 'react'
+import React, {Component } from 'react'
 import api from '../services/api'
 import storage from '../services/storage'
 import './subject.css'
 import Exercise from '../exercise/exercise'
 
-export class Subject extends PureComponent {
+export class Subject extends Component {
     state = {subjects:[{}],nsubject:0}
     
     componentWillReceiveProps(nextProps){
@@ -25,6 +25,18 @@ export class Subject extends PureComponent {
         }
     }
     
+    _handlerCheckOK = (idSubject, _id, status)=>{
+        console.log('OK!!')
+        api.changeStatus(storage.getToken(), idSubject, _id, status).then(res => this.setState({subjects:res.data.id.subjects}) )
+        
+      }
+    
+      _handlerCheckKO = (idSubject, _id, status)=>{
+        console.log('KO!!')
+        api.changeStatus(storage.getToken(), idSubject, _id, status).then(res => this.setState({subjects:res.data.id.subjects}) )
+        
+      }
+
     render(){
         return(
             <div className="main-subject">
@@ -37,7 +49,14 @@ export class Subject extends PureComponent {
                 <div className="main-subject-exercises">
                     {
                        this.state.subjects.length > 1 ? this.state.subjects[parseInt(this.state.nsubject, 10)].exercises.map((exercise, index) => {
-                            return <Exercise key={index} exercise={exercise}/>
+                            return (
+                            <Exercise 
+                                key={index}
+                                _handlerCheckKO = {this. _handlerCheckKO}
+                                _handlerCheckOK={this._handlerCheckOK}
+                                idSubject={this.state.subjects[parseInt(this.state.nsubject, 10)]._id}
+                                exercise={exercise}
+                            />)
                      }):undefined
                     }
                 </div>

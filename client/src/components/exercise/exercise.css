@@ -13,10 +13,16 @@
 
 .exercise-incomp{
 	background-color: #e08d8d;
+	-webkit-transition: background-color 400ms ease;
+    -ms-transition: background-color 400ms ease;
+    transition: background-color 400ms ease;
 }
 
 .exercise-comp{
-	background-color: #58B87D;
+	background-color: #aaddb7;
+	-webkit-transition: background-color 400ms ease;
+    -ms-transition: background-color 400ms ease;
+    transition: background-color 400ms ease;
 }
 
 .status-section{
@@ -66,3 +72,6 @@
 	margin-top: 25px;
 	line-height: 1.6;
 }
+
+
+   

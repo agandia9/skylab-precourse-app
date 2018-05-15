@@ -22,10 +22,14 @@ export class Profile extends PureComponent {
         <div className="profile">
         	<h3>Hello {this.state.userInfo ?this.state.userInfo.username :undefined}</h3>
 					<div>
+						<div>
 						<label htmlFor="name-input">Name: </label>
 						<input id="name-input" type="text" value={this.state.userInfo.name}/>
+						</div>
+						<div>
 						<label htmlFor="password-input">Password</label>
 						<input id="password-input" type="password" value={this.state.userInfo.password}/>
+						</div>
 					</div>
 					<div><img src={this.state.userInfo.photo} alt=""/><input type="file"></input></div>
 					<button>Change profile</button>
