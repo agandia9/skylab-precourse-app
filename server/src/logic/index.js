@@ -92,7 +92,25 @@ module.exports = {
 
     changeTotalPorcentage(id){
 
-        
+        const percentageArray = []
+
+        return this.listUser(id)
+        .then(user => {
+            user.subjects.forEach(subject => {
+                percentageArray.push(subject.porcentage)
+            })
+
+            total = (percentageArray.length*100)
+            total2 = percentageArray.reduce(function(van,vac,i,v){
+                return van + vac
+            })
+
+            return media = (total2*100)/total
+
+        })
+        .then(res => {
+            return User.findByIdAndUpdate({_id:id},{$set:{totalPercentage:res}})
+        })
     },
 
     createUser(name,surname,username,password,totalPercentage,photo,slackUser){
