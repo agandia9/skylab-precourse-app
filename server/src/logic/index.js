@@ -38,6 +38,18 @@ module.exports = {
 
     changeStatus(id,idSubject,idExercise,value){
 
+        return Promise.all(
+            this.changeStatusExercise(id,idSubject,idExercise,value),
+            this.changePorcentage(id,idSubject),
+            this.changeTotalPorcentage(id)
+        )
+        .catch(err => {
+            console.log(err.message)
+        })
+    },
+
+    changeStatusExercise(id,idSubject,idExercise,value){
+
         return this.listUser(id)
         .then(user => {
             user.subjects.forEach(subject => {
@@ -169,22 +181,19 @@ module.exports = {
                 return Promise.all(units.map(unit => {
                     return this.arrayExercise(unit._id)
                     .then(practises => {
-                        //console.log(practises)
                         subjects.push({porcentage:0,subject:unit._id,exercises:practises})
-                        //console.log(subjects)
                     })
                 }))
                 
             })
             .then(() => {
-                //console.log(subjects)
                 return subjects
             })
         })
     },
 
-    updateUser(id,name,surname,username,password,totalPercentage,photo,slackUser){
-        return User.findByIdAndUpdate({_id:id}, {$set:{name,surname,password,totalPercentage,photo,slackUser}})
+    updateUser(id,name,surname,username,password,photo,slackUser){
+        return User.findByIdAndUpdate({_id:id}, {$set:{name,surname,password,photo,slackUser}})
     },
 
     deleteUser(id){

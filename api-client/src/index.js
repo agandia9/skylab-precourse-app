@@ -39,8 +39,8 @@ const api = {
         return this._call('post', 'createUser', {name,surname,username,password,stateallprecourse,photo,slackUser,units})
     },
 
-    updateUser(id,name,surname,username,password,stateallprecourse,photo,slackUser,units){
-        return this._call('put', `updateUser/${id}`, {name,surname,username,password,stateallprecourse,photo,slackUser,units})
+    updateUser(id,name,surname,username,password,photo,slackUser){
+        return this._call('put', `updateUser/${id}`, {name,surname,username,password,photo,slackUser})
     },
 
     deleteUser(id){
