@@ -14,7 +14,11 @@ export class Navigator extends PureComponent {
 		})
 
 	}
-
+	componentWillReceiveProps(){
+		//PASS HERE THE NEW PROPS WHEN CHANGING STATUS EXERCISES FROM SUBJECT COMPONENT AND UPDATE THE STATE...
+		// SUBJECT => MAIN => NAVIGATOR
+		
+	}
 	_handlerCalculateUnitPercentage = () => {
 			return parseInt(this.state.subjects
 					.map(subject => subject.porcentage)
@@ -32,15 +36,14 @@ export class Navigator extends PureComponent {
         <div className="Navigator-profile">
 						<div className="status-precourse">
 							<p className="percentage-title">Actual Subject: {this._handlerCalculateUnitPercentage()}%</p>
-							<Line percent={this._handlerCalculateUnitPercentage} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
-							<p className="percentage-title">Precourse %</p>
-							<Line percent={this.state.totalPercentage ? this.state.totalPercentage:undefined} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
+							<Line percent={this._handlerCalculateUnitPercentage()} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
+							<p className="percentage-title">Precourse: {parseInt(this.state.totalPercentage)}%</p>
+							<Line percent={this.state.totalPercentage ? this.state.totalPercentage:0} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
 						</div>
 						<h3>Subjects</h3>
 						<nav>
 							{
 								this.state.subjects ? this.state.subjects.map((subject)=>{
-									console.log(subject)
 									return <NavLink key={subject.subject.unit} to={`/subject/${subject.subject.unit}`} className={this._handlerColourStatusSubject(subject)}>{subject.subject.unit} - {subject.subject.title}</NavLink>
 								}): undefined
 							}

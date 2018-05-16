@@ -1,4 +1,4 @@
-import React, {Component } from 'react'
+import React, { Component } from 'react'
 import api from '../services/api'
 import storage from '../services/storage'
 import './subject.css'
@@ -17,7 +17,6 @@ export class Subject extends Component {
         this.setState({nsubject})
         let {subjects} = this.props.userInfo
         if(!subjects){
-            console.log('reload?..')
             api.listUser(storage.getToken()).then(res => this.setState({subjects:res.data.subjects}) )
         }
         else{
@@ -25,15 +24,24 @@ export class Subject extends Component {
         }
     }
     
-    _handlerCheckOK = (idSubject, _id, status)=>{
+    //JOIN DIS IN SINGLE FUNCTION
+    _handlerCheckOK = (idSubject, _id, status) => {
         console.log('OK!!')
-        api.changeStatus(storage.getToken(), idSubject, _id, status).then(res => this.setState({subjects:res.data.id.subjects}) )
-        
+        api.changeStatus(storage.getToken(), idSubject, _id, status)
+        .then(res => {
+            console.log(res)
+            this.setState({subjects:res.data.id.subjects}) 
+        })
+
       }
     
       _handlerCheckKO = (idSubject, _id, status)=>{
         console.log('KO!!')
-        api.changeStatus(storage.getToken(), idSubject, _id, status).then(res => this.setState({subjects:res.data.id.subjects}) )
+        api.changeStatus(storage.getToken(), idSubject, _id, status)
+        .then(res => {
+            console.log(res)
+            this.setState({subjects:res.data.id.subjects}) 
+        })
         
       }
 
@@ -47,9 +55,11 @@ export class Subject extends Component {
                     </p>
                 </div>
                 <div className="main-subject-exercises">
+                <h3>Exercises</h3>
                     {
                        this.state.subjects.length > 1 ? this.state.subjects[parseInt(this.state.nsubject, 10)].exercises.map((exercise, index) => {
                             return (
+                                
                             <Exercise 
                                 key={index}
                                 _handlerCheckKO = {this. _handlerCheckKO}
@@ -57,7 +67,7 @@ export class Subject extends Component {
                                 idSubject={this.state.subjects[parseInt(this.state.nsubject, 10)]._id}
                                 exercise={exercise}
                             />)
-                     }):undefined
+                     }) : undefined
                     }
                 </div>
             </div>

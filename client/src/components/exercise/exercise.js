@@ -33,7 +33,7 @@ class Exercise extends PureComponent {
             <h3 id="exercise-statement">{this.state.index.toUpperCase() +') ' + this.state.statement}</h3>
             <div>
               <button className="button-ok" onClick={()=>this.props._handlerCheckOK(this.props.idSubject, this.props.exercise._id, 1)}>✓</button>
-              <button className="button-ko" onClick={()=>this.props._handlerCheckKO(this.props.idSubject, this.props.exercise._id, 2)}>X</button>
+              <button className="button-ko" onClick={()=>this.props._handlerCheckKO(this.props.idSubject, this.props.exercise._id, 2)}>✕</button>
             </div>
           </span>
           <Highlight >{this.state.example}</Highlight>

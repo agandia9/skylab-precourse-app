@@ -6,6 +6,7 @@
 
 .nav-top{
     font-size: 1.2em;
+    margin: 0;
 }
 .nav-top > a{
     color: black!important;
@@ -22,7 +23,7 @@
 
 .App-user-info > div > img{
     border-radius: 50%;
-	width: 75px;
+	width: 90%;
 }
 
 .App-user-info > *{
@@ -32,14 +33,18 @@
     width: 200px;
     justify-content: space-between;
     display: flex;
+    height: 100%;
+}
+.App-user-info >div{
+    height: 100%;
+
 }
 .App-user-info >div >h3{
     font-size: 1.2em;
-}
-.App-user-info >ul{
-    height: 100%;
+    margin: 0;
 }
 .App-user-info >ul a{
     padding: 3%;
+    margin-bottom: 5%;
     text-decoration: transparent;
 }

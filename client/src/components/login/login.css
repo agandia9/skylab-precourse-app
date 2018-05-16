@@ -3,6 +3,7 @@
 }
 span{
     grid-area: logo;
+    justify-content: center;
 }
 form{
     grid-area: form;
@@ -34,7 +35,9 @@ form{
 }
 .button.is-success, .button.is-success:hover{
     outline: transparent;
-    width: 200px !important;
+    margin-top: 50px;
+    width: 100%;
+    font-size: 1.2em !important;
     height: 50px;
     font-size: 20px;
     background-color: #3991cb;

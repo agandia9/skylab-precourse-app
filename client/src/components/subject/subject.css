@@ -24,6 +24,8 @@
     text-align: left;
 }
 
-.main-subject-exercises{
-    
+.main-subject-exercises > h3{
+    text-align: left;
+    font-size: 1.7em;
+    padding-left: 20px;
 }
