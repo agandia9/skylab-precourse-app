@@ -10,15 +10,10 @@ import {Header} from '../header/header'
 import './main.css';
 
 export class Main extends Component {
-	constructor(){
-		super()
-		this.state={
-		}
-	}
+	
   componentDidMount(){
     api.listUser(storage.getToken()).then(res => this.props._handlerUserInfo(res.data) )
   }
-
 
   render() {
     return (

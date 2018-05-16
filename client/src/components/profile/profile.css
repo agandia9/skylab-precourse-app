@@ -4,8 +4,9 @@
 }
 
 .profile div{
+    margin: 50px;
     display: inline-flex;
-    width: 100%;
+    width: 90%;
     justify-content: center;
 }
 .profile div img{
