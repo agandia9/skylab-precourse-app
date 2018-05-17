@@ -1,0 +1,55 @@
+.col-sm-3{
+	padding: 0;
+}
+
+.Navigator {
+	position: fixed;
+	background-color: #efefef;
+	height: 100vh;
+	padding: 20px;
+}
+
+.Navigator-profile{
+	padding: 25px;
+}
+
+.status-precourse{
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+
+.percentage-title{
+	font-size: 1.2em;
+	padding-top: 5%;
+	text-align: left;
+}
+
+.Navigator-profile > span{
+	display: inline-flex;
+	flex-flow: wrap;
+}
+
+.Navigator-profile > nav{
+	padding-top: 25px;
+	display: grid;
+	
+}
+.Navigator-profile > h3{
+	font-size: 1.8em;
+}
+
+.Navigator-profile > nav a{
+	font-size: 2vh;
+	padding-bottom: 5%;
+	color: #3991cb;
+	text-decoration: none;
+}
+.completedSubject{
+	color: #58B87D !important;
+}
+
+.actualSubject{
+	font-weight: bolder;
+	color: #127c3b !important;
+}

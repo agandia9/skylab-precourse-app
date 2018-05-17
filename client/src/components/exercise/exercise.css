@@ -1,0 +1,77 @@
+.exercise{
+	margin-bottom: 20px;
+	padding: 20px;
+	height: 100%;
+	border-radius: 4px;
+}
+.exercise pre{
+	margin-bottom: 0;
+}
+.exercise-base{
+	background-color: #eaeaea;
+}
+
+.exercise-incomp{
+	background-color: #e08d8d;
+	-webkit-transition: background-color 400ms ease;
+    -ms-transition: background-color 400ms ease;
+    transition: background-color 400ms ease;
+}
+
+.exercise-comp{
+	background-color: #aaddb7;
+	-webkit-transition: background-color 400ms ease;
+    -ms-transition: background-color 400ms ease;
+    transition: background-color 400ms ease;
+}
+
+.status-section{
+	display: inline-flex;
+    -ms-flex-pack: justify;
+    width: 100%;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.status-section > div {
+	width: 120px;
+	position: relative;
+}
+
+.status-section > div button:focus{
+	outline: none;
+	border:3px;
+}
+
+
+.status-section > div button{
+	margin: auto;
+	font-size: 1.1em;
+	border: 0;
+    height: 40px;
+    position: absolute;
+	top: -20px;
+	width: 40px;
+}
+.button-ko{
+	background-color: #ce1616;
+    right: -20px;
+    
+}
+
+.button-ok{
+	background-color: #58B87D;
+    right: 20px;
+	border-bottom-left-radius: 30%;
+}
+
+#exercise-statement{
+	text-align: justify;
+	font-weight: bold;
+	font-size: 1.1em;
+	margin-top: 25px;
+	line-height: 1.6;
+}
+
+
+   

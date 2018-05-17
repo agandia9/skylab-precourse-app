@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'skylab-regular';
+  src: url('./fonts/ATCOverlook-Regular.ttf');
+}
+*{
+  font-family: 'skylab-regular';
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

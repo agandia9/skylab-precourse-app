@@ -7,8 +7,18 @@ module.exports = new Schema({
     lastname: String,
     username: String,
     password: String,
-    stateallprecourse: String,
+    totalPercentage: Number,
     photo: String,
     slackUser: String,
-    units: Array
+    isAdmin: Boolean,
+    subjects: [
+        {
+            porcentage: Number,
+            subject: {type: ObjectId, ref: 'Subject'},
+            exercises: [{
+                status: Number,
+                exercise: {type: ObjectId, ref: 'Exercise'},
+            }]
+        }
+    ]
 })
