@@ -25,24 +25,15 @@ export class Subject extends Component {
     }
     
     //JOIN DIS IN SINGLE FUNCTION
-    _handlerCheckOK = (idSubject, _id, status) => {
-        console.log('OK!!')
-        api.changeStatus(storage.getToken(), idSubject, _id, status)
+    _handlerCheckExercise = (idSubject, _id, status) => {
+        console.log('change!')
+        api.changeTotalStatus(storage.getToken(), idSubject, _id, status)
         .then(res => {
-            console.log(res)
             this.setState({subjects:res.data.id.subjects}) 
-        })
+            return res
+        }).then(res => {
+            this.props._passToNav(res.data.id)})
 
-      }
-    
-      _handlerCheckKO = (idSubject, _id, status)=>{
-        console.log('KO!!')
-        api.changeStatus(storage.getToken(), idSubject, _id, status)
-        .then(res => {
-            console.log(res)
-            this.setState({subjects:res.data.id.subjects}) 
-        })
-        
       }
 
     render(){
@@ -62,8 +53,7 @@ export class Subject extends Component {
                                 
                             <Exercise 
                                 key={index}
-                                _handlerCheckKO = {this. _handlerCheckKO}
-                                _handlerCheckOK={this._handlerCheckOK}
+                                _handlerCheckExercise = {this._handlerCheckExercise}
                                 idSubject={this.state.subjects[parseInt(this.state.nsubject, 10)]._id}
                                 exercise={exercise}
                             />)

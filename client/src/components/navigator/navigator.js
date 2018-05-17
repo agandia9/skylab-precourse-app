@@ -9,21 +9,25 @@ export class Navigator extends PureComponent {
 	state = {subjects: [], totalPercentage: 0, lastSubject: 0}
 	componentWillMount(){	
 		api.listUser(storage.getToken()).then(res=> {
-			console.log(res)
 			this.setState({subjects:res.data.subjects, totalPercentage: res.data.totalPercentage})
 		})
 
 	}
-	componentWillReceiveProps(){
-		//PASS HERE THE NEW PROPS WHEN CHANGING STATUS EXERCISES FROM SUBJECT COMPONENT AND UPDATE THE STATE...
-		// SUBJECT => MAIN => NAVIGATOR
+	componentWillReceiveProps(nextProps){
+		if(nextProps.newInfoUser.subjects){
+			let {totalPercentage, subjects} = nextProps.newInfoUser
+		 this.setState({
+				subjects,
+				totalPercentage
+			})
+		}
 		
 	}
 	_handlerCalculateUnitPercentage = () => {
-			return parseInt(this.state.subjects
+			return this.state.subjects
 					.map(subject => subject.porcentage)
 					.filter(nums => nums !== 0)
-					.sort((a,b) => a-b)[0])
+					.sort((a,b) => a-b)[0]
 	}
 
 	_handlerColourStatusSubject = (subject)=>{
@@ -35,10 +39,10 @@ export class Navigator extends PureComponent {
       <div>
         <div className="Navigator-profile">
 						<div className="status-precourse">
-							<p className="percentage-title">Actual Subject: {this._handlerCalculateUnitPercentage()}%</p>
+							<p className="percentage-title">Actual Subject: {this._handlerCalculateUnitPercentage()|| 0}%</p>
 							<Line percent={this._handlerCalculateUnitPercentage()} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
 							<p className="percentage-title">Precourse: {parseInt(this.state.totalPercentage)}%</p>
-							<Line percent={this.state.totalPercentage ? this.state.totalPercentage:0} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
+							<Line percent={this.state.totalPercentage} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
 						</div>
 						<h3>Subjects</h3>
 						<nav>
