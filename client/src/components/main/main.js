@@ -53,7 +53,6 @@ export class Main extends Component {
                   path={'/profile/:username'}
                   component={Profile}
                 />
-                
             </div>
         </div>
 				

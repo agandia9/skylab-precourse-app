@@ -24,10 +24,10 @@ export class Navigator extends PureComponent {
 		
 	}
 	_handlerCalculateUnitPercentage = () => {
-			return parseInt(this.state.subjects
+			return this.state.subjects
 					.map(subject => subject.porcentage)
 					.filter(nums => nums !== 0)
-					.sort((a,b) => a-b)[0]).toFixed()
+					.sort((a,b) => a-b)[0]
 	}
 
 	_handlerColourStatusSubject = (subject)=>{

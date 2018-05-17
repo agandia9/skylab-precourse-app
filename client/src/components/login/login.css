@@ -4,11 +4,9 @@
 span{
     grid-area: logo;
     align-self: center;
-    justify-self: center;
 }
 form{
     grid-area: form;
-    align-self: center;
 }
 .description{
     font-size: 25px;
