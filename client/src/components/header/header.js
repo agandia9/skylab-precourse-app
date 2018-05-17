@@ -9,7 +9,6 @@ export class Header extends Component {
         this.props._handleLogout()
     }
     render(){
-        console.log(this.props.userInfo)
         return(
             <header className="App-header">
                 <h1 className="App-title">Hello {this.props.userInfo ?  this.props.userInfo.name:''}</h1>

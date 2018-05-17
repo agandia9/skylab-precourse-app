@@ -3,10 +3,12 @@
 }
 span{
     grid-area: logo;
-    justify-content: center;
+    align-self: center;
+    justify-self: center;
 }
 form{
     grid-area: form;
+    align-self: center;
 }
 .description{
     font-size: 25px;
@@ -47,9 +49,8 @@ form{
     height: 100vh;
     display: grid !important;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 15vh 25vh 15vh 25vh;
+    grid-template-rows:  35vh 15vh 50vh;
     grid-template-areas: 
-    ". . ."
     ". logo ."
     ". descript ."
     ". form .";
