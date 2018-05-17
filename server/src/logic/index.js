@@ -121,10 +121,16 @@ module.exports = {
         })
         .then(res => {
             return User.findByIdAndUpdate({_id:id},{$set:{totalPercentage:res}})
+            .populate({
+                path : 'subjects.exercises.exercise'
+            })
+            .populate({
+                path : 'subjects.subject'
+            })
         })
     },
 
-    createUser(name,surname,username,password,totalPercentage,photo,slackUser){
+    createUser(name,surname,username,password,totalPercentage,photo,slackUser,isAdmin){
         return Promise.resolve()
             .then(() => {
                 return User.findOne({ username })
@@ -135,7 +141,7 @@ module.exports = {
 
                 this.arraySubject()
                 .then(subjects => {
-                    return User.create({name,surname,username,password,totalPercentage,photo,slackUser,subjects})
+                    return User.create({name,surname,username,password,totalPercentage,photo,slackUser,isAdmin,subjects})
                     .then(user => user._id)
                 })
                 /*if(user) throw Error(` ${username} already exists`)

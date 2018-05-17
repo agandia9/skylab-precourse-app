@@ -35,8 +35,8 @@ const api = {
         return this._call('get', `listUser`, undefined, token)
     },
 
-    createUser(name,surname,username,password,stateallprecourse,photo,slackUser,units){
-        return this._call('post', 'createUser', {name,surname,username,password,stateallprecourse,photo,slackUser,units})
+    createUser(name,surname,username,password,stateallprecourse,photo,slackUser,isAdmin,units){
+        return this._call('post', 'createUser', {name,surname,username,password,stateallprecourse,photo,slackUser,isAdmin,units})
     },
 
     updateUser(id,name,surname,username,password,photo,slackUser){
