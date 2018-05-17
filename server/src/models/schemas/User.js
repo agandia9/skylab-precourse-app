@@ -10,6 +10,7 @@ module.exports = new Schema({
     totalPercentage: Number,
     photo: String,
     slackUser: String,
+    isAdmin: Boolean,
     subjects: [
         {
             porcentage: Number,
