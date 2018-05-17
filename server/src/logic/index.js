@@ -36,19 +36,18 @@ module.exports = {
         })
     },
 
-    changeStatus(id,idSubject,idExercise,value){
+    changeTotalStatus(id,idSubject,idExercise,value){
 
-        return Promise.all(
-            this.changeStatusExercise(id,idSubject,idExercise,value),
-            this.changePorcentage(id,idSubject),
-            this.changeTotalPorcentage(id)
-        )
-        .catch(err => {
-            console.log(err.message)
-        })
+            return this.changeStatus(id,idSubject,idExercise,value)
+                .then(() => {
+                    return this.changePorcentage(id,idSubject)
+                    .then(() => {
+                        return this.changeTotalPorcentage(id)
+                    })
+                })
     },
 
-    changeStatusExercise(id,idSubject,idExercise,value){
+    changeStatus(id,idSubject,idExercise,value){
 
         return this.listUser(id)
         .then(user => {
@@ -136,7 +135,6 @@ module.exports = {
 
                 this.arraySubject()
                 .then(subjects => {
-                    console.log(subjects)
                     return User.create({name,surname,username,password,totalPercentage,photo,slackUser,subjects})
                     .then(user => user._id)
                 })

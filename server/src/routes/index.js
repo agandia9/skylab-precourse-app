@@ -1,5 +1,5 @@
 const express = require('express')
-const {login, listUsers, listUser, createUser, updateUser, deleteUser, changeTotalPorcentage} = require('./handlers/userHandlers')
+const {login, listUsers, listUser, createUser, updateUser, deleteUser, changeTotalPorcentage, changeTotalStatus} = require('./handlers/userHandlers')
 const {listSubjects, listSubject, createSubject, updateSubject, deleteSubject, changePorcentage} = require('./handlers/subjectHandlers')
 const {listExercises, listExercise, createExercise, updateExercise, deleteExercise, listExercisesUnit, changeStatus} = require('./handlers/exerciseHandlers')
 const bodyParser = require('body-parser')
@@ -47,5 +47,7 @@ router.put('/changeStatus', [jwtValidator,jsonBodyParser], changeStatus)
 router.put('/changePorcentage', [jwtValidator,jsonBodyParser], changePorcentage)
 
 router.put('/changeTotalPorcentage', jwtValidator, changeTotalPorcentage)
+
+router.put('/changeTotalStatus', [jwtValidator,jsonBodyParser], changeTotalStatus)
 
 module.exports = router
