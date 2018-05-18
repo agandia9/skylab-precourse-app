@@ -39,10 +39,13 @@ module.exports = {
     changeTotalStatus(id,idSubject,idExercise,value){
 
             return this.changeStatus(id,idSubject,idExercise,value)
-                .then(() => {
+                .then(() => { 
                     return this.changePorcentage(id,idSubject)
                     .then(() => {
                         return this.changeTotalPorcentage(id)
+                        .then(() => {
+                            return this.listUser(id)
+                        })
                     })
                 })
     },
@@ -121,12 +124,6 @@ module.exports = {
         })
         .then(res => {
             return User.findByIdAndUpdate({_id:id},{$set:{totalPercentage:res}})
-            .populate({
-                path : 'subjects.exercises.exercise'
-            })
-            .populate({
-                path : 'subjects.subject'
-            })
         })
     },
 
