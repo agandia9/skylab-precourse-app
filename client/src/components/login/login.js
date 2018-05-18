@@ -38,7 +38,7 @@ export class Login extends Component {
                     swal('Error', 'Username or Password not correct', 'error')
                 }
             })
-            //not works.... for when lost connection with back
+            //not works.... for when lost connection with back  
             .catch((err)=>{
                 swal('Error', err,'')
                 console.log(err.message)

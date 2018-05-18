@@ -24,16 +24,12 @@ export class Subject extends Component {
         }
     }
     
-    //JOIN DIS IN SINGLE FUNCTION
     _handlerCheckExercise = (idSubject, _id, status) => {
-        console.log('change!')
         api.changeTotalStatus(storage.getToken(), idSubject, _id, status)
         .then(res => {
-            this.setState({subjects:res.data.id.subjects}) 
-            return res
-        }).then(res => {
-            this.props._passToNav(res.data.id)})
-
+            console.log(res.data.id.totalPercentage)
+            this.setState({subjects:res.data.id.subjects}, this.props._passToNav(res.data.id)) 
+        })
       }
 
     render(){

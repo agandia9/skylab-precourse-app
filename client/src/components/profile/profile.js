@@ -17,7 +17,6 @@ export class Profile extends PureComponent {
 		}
 		
 		_handlerChangeInfo = (e)=>{
-			console.log(e.target.id)
 			let key = e.target.id
 			let value = e.target.value
 			let change = (fieldset, field, data) => {
@@ -29,9 +28,6 @@ export class Profile extends PureComponent {
 				}))
 			}
 			change('userNewInfo', key, value)
-		}
-		_handlerChangeInfo = () => {
-			console.log('yeyyy')
 		}
   render() {
 		
