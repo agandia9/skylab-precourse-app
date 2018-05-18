@@ -7,14 +7,20 @@ import { Profile } from '../profile/profile'
 import { Welcome } from '../welcome/welcome'
 import { Subject } from '../subject/subject'
 import { Header } from '../header/header'
+import { Admin } from '../admin/admin'
 import './main.css';
 
 export class Main extends Component {
  
-  state={newInfoUser:{}}
+  state={newInfoUser:{}, isAdmin: false}
 
   componentDidMount(){
-    api.listUser(storage.getToken()).then(res => this.props._handlerUserInfo(res.data) )
+    api.listUser(storage.getToken()).then(res => {
+      let {isAdmin} = res.data
+      this.setState({
+        isAdmin
+      })
+      this.props._handlerUserInfo(res.data)} )
   }
 
   _passToNav = (newInfoUser)=>{
@@ -29,6 +35,7 @@ export class Main extends Component {
               className="header-div" 
               _handleLogout={this.props._handleLogout} 
               userInfo={this.props.userInfo}
+              isAdmin={this.state.isAdmin}
             />
             <div className="navigator-div">
                 <Navigator 
@@ -53,6 +60,14 @@ export class Main extends Component {
                   path={'/profile/:username'}
                   component={Profile}
                 />
+                {
+                  this.state.isAdmin ? 
+                    <Route
+                    path={'/admin'}
+                    component={Admin}
+                  />
+                  : undefined
+                }
             </div>
         </div>
 				

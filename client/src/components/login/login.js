@@ -20,7 +20,6 @@ export class Login extends Component {
         })
     }
     _handleLogin = (e)=> {
-        
         e.preventDefault()
         const {username, password} = this.state
         return service.login(username, password)
@@ -39,7 +38,7 @@ export class Login extends Component {
                     swal('Error', 'Username or Password not correct', 'error')
                 }
             })
-            //not works.... for when lost connection with back
+            //not works.... for when lost connection with back  
             .catch((err)=>{
                 swal('Error', err,'')
                 console.log(err.message)
