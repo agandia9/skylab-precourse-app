@@ -141,6 +141,9 @@ module.exports = {
                     return User.create({name,surname,username,password,totalPercentage,photo,slackUser,isAdmin,subjects})
                     .then(user => user._id)
                 })
+                
+                // NOOO
+
                 /*if(user) throw Error(` ${username} already exists`)
                 
                 subjects = []
@@ -154,8 +157,9 @@ module.exports = {
                 .then(() => User.create({name,surname,username,password,totalPercentage,photo,slackUser,subjects}))
                 .then(user => user._id)*/
                 
+                // NOO
             })
-    }, 
+    },
 
     arrayExercise(unit){
 
@@ -248,6 +252,8 @@ module.exports = {
     listExercisesUnit(unit){
         return Exercise.find({unit:unit})
     },
+
+    // NOO
 
     /*createExercice(unit,index,title,example,status){
         return Promise.resolve()

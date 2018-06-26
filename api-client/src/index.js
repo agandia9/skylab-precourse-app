@@ -5,7 +5,7 @@ const rp = require('request-promise')
 const api = {
 
     _baseUrl(){
-        return `${this.protocol}://${this.host}:${this.port}/api`
+        return `${this.protocol}://${this.host}/api`
     },
 
     _call(method,path,body,token){
