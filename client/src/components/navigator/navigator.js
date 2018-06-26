@@ -39,10 +39,11 @@ export class Navigator extends PureComponent {
       <div>
         <div className="Navigator-profile">
 						<div className="status-precourse">
-							<p className="percentage-title">Current Subject: {parseInt(this._handlerCalculateUnitPercentage())|| 0}%</p>
-							<Line percent={this._handlerCalculateUnitPercentage()} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
+							
 							<p className="percentage-title">Precourse: {parseInt(this.state.totalPercentage)}%</p>
 							<Line percent={this.state.totalPercentage} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
+							<p className="percentage-title">Current Subject: {parseInt(this._handlerCalculateUnitPercentage())|| 0}%</p>
+							<Line percent={this._handlerCalculateUnitPercentage()} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
 						</div>
 						<h3>Subjects</h3>
 						<nav>
