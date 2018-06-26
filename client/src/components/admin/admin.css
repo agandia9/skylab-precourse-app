@@ -1,0 +1,20 @@
+.form-create{
+   display: inline-block;
+   width: 25%;
+}
+.form-create span {
+    
+    display: table-row;
+    
+}
+
+.form-create button{
+    background-color: #4D91C6;
+    height: 50px;
+    width: 80%;
+    font-size: 1.5em;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    border:0;
+}

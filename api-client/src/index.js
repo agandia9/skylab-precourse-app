@@ -3,7 +3,7 @@
 const rp = require('request-promise')
 
 const api = {
-
+    
     _baseUrl(){
         return `${this.protocol}://${this.host}/api`
     },
@@ -35,12 +35,12 @@ const api = {
         return this._call('get', `listUser`, undefined, token)
     },
 
-    createUser(name,surname,username,password,stateallprecourse,photo,slackUser,isAdmin,units){
-        return this._call('post', 'createUser', {name,surname,username,password,stateallprecourse,photo,slackUser,isAdmin,units})
+    createUser(name,surname,username,password,slackUser,isAdmin){
+        return this._call('post', 'createUser', {name,surname,username,password,slackUser,isAdmin})
     },
 
-    updateUser(id,name,surname,username,password,photo,slackUser){
-        return this._call('put', `updateUser/${id}`, {name,surname,username,password,photo,slackUser})
+    updateUser(id, username, newUsername, password, newPassword){
+        return this._call('put', `updateUser/${id}`, { username, newUsername, password, newPassword})
     },
 
     deleteUser(id){

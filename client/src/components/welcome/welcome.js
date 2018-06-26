@@ -5,17 +5,13 @@ export class Welcome extends Component {
     render(){
         return(
             <div className="welcome-info">
-                <h3> Welcome to Skylab Coders Precourse </h3>
+                <h3> Bienvenido/a al precurso de preparación para el bootcamp de Skylab Coders. </h3>
                 <div className="info">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error reiciendis dignissimos eveniet illum vero perspiciatis iure doloremque, laboriosam praesentium mollitia. Recusandae ex iure aperiam dolorem, reiciendis quia quod quisquam. Cum?Voluptatibus exercitationem eos saepe harum natus in perferendis delectus, laudantium accusantium doloribus, earum asperiores impedit veritatis a quod eum aperiam blanditiis nisi tempore magni id officiis illo. Voluptates, ea hic!</p>
+                    <p>En este curso sentaremos las bases sobre las que construiremos cuando empiece el curso presencial. Tanto si has programado antes como si no lo has hecho, es fundamental que lo termines.
+                        Verás que tienes una serie de videos introductorios, ejercicios y un proyecto que cierra cada tema. Cualquier duda que tengas, busca por internet, pregúntanosla, o acude a tus compañeros en Slack. Hacer el curso de Skylab Coders es un ejercicio de equipo. Cuando termines cada proyecto, mándalo a cualquiera de los profesores asistentes de tu promoción.
+                        </p>
+                        <h3>Adelante!!!!</h3>
                 </div>
-                <div className="contact">
-                    <p>Contact</p>
-                    <div className="contact-social">
-
-                    </div>
-                </div>
-
             </div>
         )
     }

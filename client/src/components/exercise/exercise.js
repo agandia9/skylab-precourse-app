@@ -11,6 +11,13 @@ class Exercise extends PureComponent {
     index:'',
     status:0
   }
+  componentWillMount(){
+    
+    let {statement, example, index} = this.props.exercise.exercise
+    let {status} = this.props.exercise
+
+    this.setState({statement, example, index, status})
+   }
 
    componentWillReceiveProps(nextProps){
     let {statement, example, index} = nextProps.exercise.exercise
@@ -18,13 +25,9 @@ class Exercise extends PureComponent {
 
     this.setState({statement, example, index, status})
     
+    
    }
-   componentWillMount(){
-    let {statement, example, index} = this.props.exercise.exercise
-    let {status} = this.props.exercise
-
-    this.setState({statement, example, index, status})
-   }
+ 
   render(){
     
       return (
