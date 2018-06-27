@@ -20,7 +20,7 @@ export class Main extends Component {
       this.setState({
         isAdmin
       })
-      this.props._handlerUserInfo(res.data)} )
+      this.props._handlerUserInfo(res.data)})
   }
 
   _passToNav = (newInfoUser)=>{
@@ -28,6 +28,7 @@ export class Main extends Component {
       newInfoUser
     })
   }
+
   render() {
     return (
 			<div className="App">

@@ -8,5 +8,11 @@ div p{
 }
 
 .welcome-info{
+    margin-top: 5%;
     padding: 20px;
+}
+.info{
+    padding-left: 10%;
+    padding-right: 10%;
+    line-height: 40px;
 }

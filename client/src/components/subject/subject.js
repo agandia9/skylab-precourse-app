@@ -5,14 +5,17 @@ import './subject.css'
 import Exercise from '../exercise/exercise'
 
 export class Subject extends Component {
-    state = {subjects:[{}],nsubject:0}
+    state = {subjects:[],nsubject:0}
     
     componentWillReceiveProps(nextProps){
+        
         let {nsubject} = nextProps.info.match.params
         this.setState({nsubject})
+        
     }
 
     componentWillMount(){
+        
         let {nsubject} = this.props.info.match.params
         this.setState({nsubject})
         let {subjects} = this.props.userInfo
@@ -27,35 +30,44 @@ export class Subject extends Component {
     _handlerCheckExercise = (idSubject, _id, status) => {
         api.changeTotalStatus(storage.getToken(), idSubject, _id, status)
         .then(res => {
-            console.log(res.data.id.totalPercentage)
+            
             this.setState({subjects:res.data.id.subjects}, this.props._passToNav(res.data.id)) 
         })
       }
 
     render(){
+        {
+            console.log(this.state.subjects)
+        }
         return(
+            
             <div className="main-subject">
-                 <div className="info-subject">
-                    <h3>{ this.state.subjects.length > 1 ? 'Unit ' + this.state.subjects[parseInt(this.state.nsubject, 10)].subject.unit + ' - ' +this.state.subjects[parseInt(this.state.nsubject, 10)].subject.title :undefined} </h3>
-                    <p className="theory">
-                        {this.state.subjects.length > 1 ? this.state.subjects[parseInt(this.state.nsubject, 10)].subject.theory:undefined}
-                    </p>
+            {
+                this.state.subjects.length > 0 ?
+            
+                <div>
+                    <div className="info-subject">
+                        <h3>{'Unit ' + this.state.subjects[parseInt(this.state.nsubject, 10)].subject.unit + ' - ' +this.state.subjects[parseInt(this.state.nsubject, 10)].subject.title} </h3> 
+                        <div className="content" dangerouslySetInnerHTML={{__html: this.state.subjects[parseInt(this.state.nsubject, 10)].subject.theory}}></div>
+                        
+                    </div>
+                    <div className="main-subject-exercises">
+                    <h3>Exercises</h3>
+                        {
+                        this.state.subjects[parseInt(this.state.nsubject, 10)].exercises.map((exercise, index) => {
+                                return (
+                                    
+                                <Exercise 
+                                    key={index}
+                                    _handlerCheckExercise = {this._handlerCheckExercise}
+                                    idSubject={this.state.subjects[parseInt(this.state.nsubject, 10)]._id}
+                                    exercise={exercise}
+                                />)
+                        })
+                        }
+                    </div>
                 </div>
-                <div className="main-subject-exercises">
-                <h3>Exercises</h3>
-                    {
-                       this.state.subjects.length > 1 ? this.state.subjects[parseInt(this.state.nsubject, 10)].exercises.map((exercise, index) => {
-                            return (
-                                
-                            <Exercise 
-                                key={index}
-                                _handlerCheckExercise = {this._handlerCheckExercise}
-                                idSubject={this.state.subjects[parseInt(this.state.nsubject, 10)]._id}
-                                exercise={exercise}
-                            />)
-                     }) : undefined
-                    }
-                </div>
+            :<div> No info for this subject </div>}
             </div>
         )
     }

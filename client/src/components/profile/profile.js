@@ -2,7 +2,7 @@ import React,  { PureComponent } from 'react';
 import api from '../services/api'
 import './profile.css'
 import storage from '../services/storage'
-
+import swal from 'sweetalert2'
 export class Profile extends PureComponent {
 	constructor(){
 		super()
@@ -28,8 +28,18 @@ export class Profile extends PureComponent {
 				}))
 			}
 			change('userNewInfo', key, value)
+			
 		}
-  render() {
+		_handlerSubmitUpdate = () => {
+			let {_id} = this.state.userInfo
+			let { username, password } = this.state.userNewInfo
+			console.log( _id, username, password)
+
+			api.updateUser(_id, username, password).then(()=>{
+				swal('updated success')
+			})
+		}
+		render() {
 		
     return (
       <div>
@@ -38,22 +48,14 @@ export class Profile extends PureComponent {
 					<div>
 						<div>
 							<label htmlFor="name">Name: </label>
-							<input id="name" type="text" placeholder={this.state.userInfo.name} onChange={this._handlerChangeInfo}/>
+							<input id="username" type="text" placeholder={this.state.userInfo.username} onChange={this._handlerChangeInfo}/>
 						</div>
 						<div>
 							<label htmlFor="password">Password</label>
 							<input id="password" type="password" placeholder={this.state.userInfo.password} onChange={this._handlerChangeInfo}/>
-						</div>
-						<div>
-							<label htmlFor="slackUser">Slack User: </label>
-							<input id="slackUser" type="text" placeholder={this.state.userInfo.slackUser} onChange={this._handlerChangeInfo}/>
 						</div>	
 					</div>
-					<div>
-						<img src={this.state.userInfo.photo} alt=""/>
-						<input type="file"></input>
-					</div>
-					<button onClick={this._handlerChangeInfo}>Change profile</button>
+					<button onClick={this._handlerSubmitUpdate}>Change profile</button>
         </div>
       </div>
     );
