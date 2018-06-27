@@ -2,7 +2,7 @@ import React,  { PureComponent } from 'react';
 import api from '../services/api'
 import './profile.css'
 import storage from '../services/storage'
-
+import swal from 'sweetalert2'
 export class Profile extends PureComponent {
 	constructor(){
 		super()
@@ -29,7 +29,25 @@ export class Profile extends PureComponent {
 			}
 			change('userNewInfo', key, value)
 		}
-  render() {
+		_handleLogout = ()=>{
+			storage.removeToken()
+			this.props._handleLogout()
+		}
+
+		_handlerSubmitUpdate = () => {
+			let {_id, username, password} = this.state.userInfo
+			let { newUsername, newPassword } = this.state.userNewInfo
+			console.log( _id, username, newUsername, password, newPassword)
+			//id, username, newUsername, password, newPassword
+			api.updateUser(_id, username, newUsername, password, newPassword).then(()=>{
+				swal('updated success').then(()=>{
+					this._handleLogout()
+				})
+			}).catch((err) => {
+				swal(err)
+			})
+		}
+		render() {
 		
     return (
       <div>
@@ -37,23 +55,15 @@ export class Profile extends PureComponent {
         
 					<div>
 						<div>
-							<label htmlFor="name">Name: </label>
-							<input id="name" type="text" placeholder={this.state.userInfo.name} onChange={this._handlerChangeInfo}/>
+							<label htmlFor="name">Username: </label>
+							<input id="newUsername" type="text" placeholder={this.state.userInfo.username} onChange={this._handlerChangeInfo}/>
 						</div>
 						<div>
 							<label htmlFor="password">Password</label>
-							<input id="password" type="password" placeholder={this.state.userInfo.password} onChange={this._handlerChangeInfo}/>
-						</div>
-						<div>
-							<label htmlFor="slackUser">Slack User: </label>
-							<input id="slackUser" type="text" placeholder={this.state.userInfo.slackUser} onChange={this._handlerChangeInfo}/>
+							<input id="newPassword" type="password" placeholder={this.state.userInfo.password} onChange={this._handlerChangeInfo}/>
 						</div>	
 					</div>
-					<div>
-						<img src={this.state.userInfo.photo} alt=""/>
-						<input type="file"></input>
-					</div>
-					<button onClick={this._handlerChangeInfo}>Change profile</button>
+					<button onClick={this._handlerSubmitUpdate}>Change profile</button>
         </div>
       </div>
     );

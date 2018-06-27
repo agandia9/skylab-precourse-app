@@ -15,7 +15,6 @@ class App extends Component {
   _handleIsLogged =(token)=>{
     storage.setToken(token)
     this.setState({isLogged:true})
-    // redirect to '/'
   }
 
   _handlerUserInfo = (userInfo)=>{

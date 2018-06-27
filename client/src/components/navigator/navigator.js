@@ -35,24 +35,27 @@ export class Navigator extends PureComponent {
 	}
 
   render() {
+		
     return (
-      <div>
+      <div>{
+				this.state.subjects ?
         <div className="Navigator-profile">
 						<div className="status-precourse">
-							<p className="percentage-title">Actual Subject: {this._handlerCalculateUnitPercentage()|| 0}%</p>
-							<Line percent={this._handlerCalculateUnitPercentage()} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
+							
 							<p className="percentage-title">Precourse: {parseInt(this.state.totalPercentage)}%</p>
 							<Line percent={this.state.totalPercentage} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
+							<p className="percentage-title">Current Subject: {parseInt(this._handlerCalculateUnitPercentage())|| 0}%</p>
+							<Line percent={this._handlerCalculateUnitPercentage()} strokeWidth="6" trailWidth="6" strokeColor="#20bc78" />
 						</div>
 						<h3>Subjects</h3>
 						<nav>
 							{
-								this.state.subjects ? this.state.subjects.map((subject)=>{
+								this.state.subjects.length > 0 ? this.state.subjects.map((subject)=>{
 									return <NavLink key={subject.subject.unit} to={`/subject/${subject.subject.unit}`} className={this._handlerColourStatusSubject(subject)}>{subject.subject.unit} - {subject.subject.title}</NavLink>
 								}): undefined
 							}
 						</nav>
-        </div>
+        </div>:undefined}
 				
       </div>
     );

@@ -20,13 +20,11 @@ export class Login extends Component {
         })
     }
     _handleLogin = (e)=> {
-        
         e.preventDefault()
         const {username, password} = this.state
         return service.login(username, password)
             .then(res=>{
                 if(res.status === 'OK'){
-                    console.log('logged!!')
                     this.props._handleIsLogged(res.data.token)
                     swal({
                         title: 'Logged',
@@ -39,10 +37,9 @@ export class Login extends Component {
                     swal('Error', 'Username or Password not correct', 'error')
                 }
             })
-            //not works.... for when lost connection with back
+            //not works.... for when lost connection with heroku  
             .catch((err)=>{
                 swal('Error', err,'')
-                console.log(err.message)
             })
     }
     render(){

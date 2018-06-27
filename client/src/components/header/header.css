@@ -5,11 +5,11 @@
 }
 
 .nav-top{
-    font-size: 1.2em;
+    font-size: 1em;
     margin: 0;
 }
 .nav-top > a{
-    color: black!important;
+    color: white !important;
 }
 .App-header {
 	background-color: #3991cb; 

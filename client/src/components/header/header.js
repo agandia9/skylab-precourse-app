@@ -7,6 +7,7 @@ export class Header extends Component {
     _handleLogout = ()=>{
         storage.removeToken()
         this.props._handleLogout()
+        
     }
     render(){
         return(
@@ -22,6 +23,11 @@ export class Header extends Component {
                     {this.props.userInfo 
                     ? <NavLink to={"/profile/"+this.props.userInfo.username}>Profile</NavLink>
                     : ''
+                    }
+                    {
+                        this.props.isAdmin === true 
+                        ? <NavLink to="/admin">Admin</NavLink>
+                        : ''
                     }
                     <a className="active" href='/' onClick={this._handleLogout}>Logout</a>
                 </ul>
