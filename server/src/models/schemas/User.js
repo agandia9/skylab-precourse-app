@@ -3,57 +3,21 @@ const mongoose = require('mongoose')
 const { Schema, Schema: { ObjectId } } = mongoose
 
 module.exports = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    lastname: {
-        type: String,
-        required: true
-    },
-    username: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    totalPercentage: {
-        type: Number,
-        required: true
-    },
-    photo: {
-        type: String
-    },
-    slackUser: {
-        type: String
-    },
-    isAdmin: {
-        type: Boolean,
-        required: true
-    },
+    name: String,
+    surname: String,
+    username: String,
+    password: String,
+    totalPercentage: {type:Number,required:true,default:0},
+    photo: {type:String,required:true,default:"https://www.knowmuhammad.org/img/noavatarn.png"},
+    slackUser: String,
+    isAdmin: {type:Boolean, required:true, default:false},
     subjects: [
         {
-            porcentage: {
-                type: Number,
-                required: true
-            },
-            subject: {
-                type: ObjectId,
-                ref: 'Subject',
-                required: true
-            },
+            porcentage: Number,
+            subject: {type: ObjectId, ref: 'Subject'},
             exercises: [{
-                status: {
-                    type: Number,
-                    required: true
-                },
-                exercise: { 
-                    type: ObjectId, 
-                    ref: 'Exercise',
-                    required: true
-                },
+                status: Number,
+                exercise: {type: ObjectId, ref: 'Exercise'},
             }]
         }
     ]
