@@ -31,12 +31,14 @@ export class Profile extends PureComponent {
 			
 		}
 		_handlerSubmitUpdate = () => {
-			let {_id} = this.state.userInfo
-			let { username, password } = this.state.userNewInfo
-			console.log( _id, username, password)
-
-			api.updateUser(_id, username, password).then(()=>{
+			let {_id, username, password} = this.state.userInfo
+			let { newUsername, newPassword } = this.state.userNewInfo
+			console.log( _id, username, newUsername, password, newPassword)
+			//id, username, newUsername, password, newPassword
+			api.updateUser(_id, username, newUsername, password, newPassword).then(()=>{
 				swal('updated success')
+			}).catch((err) => {
+				swal(err)
 			})
 		}
 		render() {
@@ -47,12 +49,12 @@ export class Profile extends PureComponent {
         
 					<div>
 						<div>
-							<label htmlFor="name">Name: </label>
-							<input id="username" type="text" placeholder={this.state.userInfo.username} onChange={this._handlerChangeInfo}/>
+							<label htmlFor="name">Username: </label>
+							<input id="newUsername" type="text" placeholder={this.state.userInfo.username} onChange={this._handlerChangeInfo}/>
 						</div>
 						<div>
 							<label htmlFor="password">Password</label>
-							<input id="password" type="password" placeholder={this.state.userInfo.password} onChange={this._handlerChangeInfo}/>
+							<input id="newPassword" type="password" placeholder={this.state.userInfo.password} onChange={this._handlerChangeInfo}/>
 						</div>	
 					</div>
 					<button onClick={this._handlerSubmitUpdate}>Change profile</button>
