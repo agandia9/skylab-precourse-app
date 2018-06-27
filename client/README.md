@@ -1,5 +1,7 @@
 ## SkylabPrecourse App
 
+[Live version](http://prepskylab.surge.sh/)
+
 ### TO-DO 2.0 FRONT
 
 - Testing w/Jest
