@@ -7,6 +7,7 @@ export class Header extends Component {
     _handleLogout = ()=>{
         storage.removeToken()
         this.props._handleLogout()
+        
     }
     render(){
         return(

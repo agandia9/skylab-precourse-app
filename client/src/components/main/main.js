@@ -59,7 +59,10 @@ export class Main extends Component {
 								/>
                 <Route
                   path={'/profile/:username'}
-                  component={Profile}
+                  render={(props) => <Profile 
+                    _handleLogout={this.props._handleLogout} 
+                    
+                  />}
                 />
                 {
                   this.state.isAdmin ? 

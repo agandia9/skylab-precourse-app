@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import api from '../services/api';
 import swal from 'sweetalert2'
 import './admin.css'
-export class Admin extends Component {
+export class Admin extends PureComponent {
     state = {}  
 
     _handleChange = (e) =>{

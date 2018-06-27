@@ -28,15 +28,21 @@ export class Profile extends PureComponent {
 				}))
 			}
 			change('userNewInfo', key, value)
-			
 		}
+		_handleLogout = ()=>{
+			storage.removeToken()
+			this.props._handleLogout()
+		}
+
 		_handlerSubmitUpdate = () => {
 			let {_id, username, password} = this.state.userInfo
 			let { newUsername, newPassword } = this.state.userNewInfo
 			console.log( _id, username, newUsername, password, newPassword)
 			//id, username, newUsername, password, newPassword
 			api.updateUser(_id, username, newUsername, password, newPassword).then(()=>{
-				swal('updated success')
+				swal('updated success').then(()=>{
+					this._handleLogout()
+				})
 			}).catch((err) => {
 				swal(err)
 			})
